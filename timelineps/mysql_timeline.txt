@@ -1,0 +1,50 @@
+DB: timelinedb
+用户名： timeline  密码： hitimeline
+/*创建users表格
+属性：usersid 用户ID ，不需要写，会自动添加
+			username 用户名
+			email 用户email
+			password 用户密码
+*/
+create table users
+( userid int unsigned not null auto_increment primary key,
+	username char(50) not null,
+	email char(100) not null,
+	password char(50) not null
+);
+
+/*创建userpages表格
+属性：pageid 页面ID ，不需要写，会自动添加
+			pagename 页面名
+			userid 用户id 和表users重的userid对应
+*/
+create table userpages
+( pageid int unsigned not null auto_increment primary key,
+	pagename text not null,
+	userid int unsigned not null
+);
+
+/*创建userpages表格
+属性：versionid 版本id
+			version 版本号
+			time 修改的时间
+			path 保存的本地路径
+			information 其它修改信息
+			pageid 页面ID ，不需要写，会自动添加
+*/
+create table pages
+( versionid int unsigned not null auto_increment primary key,
+	version bigint not null,
+	time datetime not null,
+	path varchar(200) not null,
+	information longtext,
+	pageid int not null
+);
+
+/*给表users插入一个timeline用户信息来记录那些未注册用户的网页
+username： timeline
+email: timeline@timeline.com
+password: timeline
+*/
+insert into users values
+	(NULL, 'timeline', 'timeline@timeline.com', 'timeline');

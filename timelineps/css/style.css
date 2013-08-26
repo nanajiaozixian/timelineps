@@ -1,0 +1,325 @@
+@charset "utf-8";
+/* CSS Document */
+a{
+	text-decoration: none;
+}
+
+body{	
+	background: black;
+	margin: 0;
+}
+
+#separation{
+/*display: none;*/
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 2000px;
+	height: 20px;
+	background: white;
+	margin-left: -200px;
+	margin-right: -200px;
+}
+#main_page_container{
+/*display: none;*/
+	position: relative;
+	margin: 0 auto;
+	width: 1070px;
+}
+
+#header {
+	height: 45px;
+	width: 100%;
+	background: black;
+	
+}
+#logo a{
+	display: block;
+	background: url("../img/logo.jpg") 0 0 no-repeat;
+	width: 196px;
+	height: 41px;
+	text-indent: -9999px;
+	margin: 10px 20px;
+}
+
+#main_content{
+	/*display: none;*/
+	position: absolute;
+	top: 90px;
+	height: 700px;
+	width: 100%;
+	background: url("../img/background.jpg") 0 0 no-repeat;
+	
+}
+
+#left{
+	float: left;
+}
+#cloktext{
+	width: 358px;
+	height: 140px;
+	margin: 30px;
+	background: url("../img/clock_t.jpg") 0 0 no-repeat;
+}
+#clock{
+	margin: 0 10px;
+	width: 300px;
+	height: 300px;
+	background: url("../img/clock.png") 0 0 no-repeat;
+	position: relative;
+	list-style: none;  	
+}
+#sec, #min, #hour {
+     position: absolute;
+     width: 30px;
+     height: 600px;
+     top: -150px;
+     left: 135px;
+}
+#sec {
+     background: url("../img/sechand.png");
+     z-index: 3;
+}
+           
+#min {
+     background: url("../img/minhand.png");
+     z-index: 2;
+}
+           
+#hour {
+     background: url("../img/hourhand.png");
+     z-index: 1;
+}   
+#right{
+	float: right;
+	margin: 100px 20px 20px 20px;
+}
+#right p{
+	width: 500px;
+	color: white;
+	font-size:30px;
+	font-style:italic;
+}
+
+#right p span{
+	color: #fcb140;
+	font-size: 36px;
+}
+#login_signup{
+	margin: 30px;
+}
+#login{
+	float: left;
+	width: 220px;
+}
+
+#login img{
+	width: 93px;
+	height: 63px;	
+}
+#right #login p{
+	font-size:16px;
+	margin-top: -2px;
+	width: 200px;
+}
+
+input{
+	display: block;
+	float: left;
+	border-radius: 3px;
+	background: #b5b1ae;
+	border: 0px;
+	margin-top: 7px;
+	height: 25px;
+	width: 190px;
+}
+.err{
+	border: 1px solid red;
+}
+#password{
+	margin-top: 18px;
+}
+
+.bright{
+	width: 25px;
+	height: 30px;
+	background: url('../img/right.png') no-repeat 0 0;
+	float: right;
+	margin-top: 10px;
+}
+#un_right{
+	display: none;
+}
+#psw_right{
+	display: none;
+}
+#separationline{
+	float: left;
+	background: url("../img/separation_line.jpg");
+	width: 28px;
+	height: 228px;
+	margin: -20px 25px 0 0;
+}
+#signup{
+	float: right;
+	width: 220px;
+	margin-right: -40px;
+}
+
+#signup img{
+	width: 93px;
+	height: 63px;	
+}
+#right #signup p{
+	font-size:16px;
+	margin-top: -2px;
+	width: 200px;
+}
+#right #signup p span{
+	font-size:16px;
+	padding-bottom: 10px;
+}
+#right #try_for_free p{
+	width: 300px;
+	float: left;
+}
+#try_btn{
+	float: right;
+	background: url("../img/buttons.png") -5px -0px no-repeat;
+	width: 200px;
+	height: 100px;
+	border: 0;
+}
+#try_btn:hover{
+	background-position: -5px -99px;
+}
+#login_btn{
+	background: url("../img/buttons.png") -238px -35px no-repeat;
+	width: 85px;
+	height: 49px;
+	border: 0;
+	margin-top: 30px;
+}
+#login_btn:hover{
+	background-position: -238px -134px;
+}
+#signup_btn{
+	background: url("../img/buttons.png") -357px -35px no-repeat;
+	width: 85px;
+	height: 49px;
+	border: 0;
+	margin-top: 16px;
+}
+#signup_btn:hover{
+	background-position: -357px -134px;
+}
+
+
+
+/*********************snapshot page*********************/
+#snapshot_page_container{
+	display: none;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 600px;
+	background: black;
+}
+#content_snp{
+	/**/
+	background: url("../img/snapshot_bg.jpg") 0 0 no-repeat;
+	height: 650px;
+	width: 800px;
+	margin: 0 auto;
+	
+}
+
+#main_snp{
+	position:relative;
+	padding: 160px 0 100px 215px;
+	font-size: 24px;
+}
+
+#main_snp p{
+	margin: 5px 50px;
+	color: white;
+	width: 300px;
+}
+
+textarea{
+	margin: 5px 0;
+	border: 5px solid #790000;
+}
+#btn_snp{
+	
+	width: 350px;
+}
+#takesnap{
+	background: url("../img/takesnap.png") -2px -8px no-repeat;
+	width: 100px;
+	height: 150px;
+	border: 0px;
+	margin: 20px;
+}
+#takesnap:hover{
+	background-position: -104px -8px;
+}
+.cbtn_snp{
+	width: 95px;
+	height: 70px;	
+	border: 0px;
+}
+#back{
+	background: url("../img/buttons_snp.png") 0 0 no-repeat;	
+}
+#show{
+	background: url("../img/buttons_snp.png") -105px 0 no-repeat;	
+}
+#back:hover{
+	background-position:  0px -70px;
+}
+#show:hover{
+	background-position: -105px -70px;
+}
+
+#loading{
+	width: 145px;
+	height: 15px;
+	background: url("../img/loading.gif") 0 0 no-repeat;
+	position: absolute;
+	top: 130px;
+	left: 315px;
+	display: none;
+}
+
+/*****show_timeline_page*************/
+
+#show_timeline_page_container{
+	display: none;
+	position: absolute;
+	top: 90px;
+	height: 700px;
+	width: 100%;
+	background: black;
+}
+#webpage{
+	display: none;
+	width: 95%;
+	height: 800px;
+	float: right;
+}
+#hidepage{
+	display: none;
+	width: 95%;
+	height: 800px;
+	float: right;
+}
+#right_st{
+	width: 85%;
+	height: 800px;
+	float: right;
+}
+#leftbar_st{
+	width: 10%;
+	float: left;
+}

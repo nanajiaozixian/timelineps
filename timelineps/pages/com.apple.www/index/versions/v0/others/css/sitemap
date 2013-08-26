@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<meta name="Author" content="Apple Inc." />
+	<meta name="viewport" content="width=1024" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7, IE=9" />
+	<link id="globalheader-stylesheet" rel="stylesheet" href="http://images.apple.com/global/nav/styles/navigation.css" type="text/css" />
+	
+
+	<title>Apple - Site Map</title>
+	<meta name="omni_page" content="Site Map - Index" />
+	<meta name="Description" content="Site map for Apple.com." />
+	<script src="http://images.apple.com/global/scripts/lib/prototype.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/scripts/lib/scriptaculous.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/scripts/lib/sizzle.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/scripts/browserdetect.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/scripts/apple_core.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/scripts/search_decorator.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/scripts/feedstatistics.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/ac_base/ac_base.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://images.apple.com/global/ac_retina/ac_retina.js" type="text/javascript" charset="utf-8"></script>
+
+	<link rel="stylesheet" href="http://images.apple.com/global/styles/base.css" type="text/css" />
+	<link rel="stylesheet" href="http://images.apple.com/sitemap/styles/sitemap.css" type="text/css" />
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var searchSection = 'global';
+		var searchCountry = 'us';
+		var aiRequestsEnabled = true;
+		var aiDisplaySuggestions = true;
+	</script>
+
+<script src="http://images.apple.com/global/nav/scripts/globalnav.js" type="text/javascript" charset="utf-8"></script>
+<nav id="globalheader">
+	<!--googleoff: all-->
+	<ul id="globalnav" role="navigation">
+		<li id="gn-apple"><a href="/"><span>Apple</span></a></li>
+		<li id="gn-store"><a href="http://store.apple.com/"><span>Store</span></a></li>
+		<li id="gn-mac"><a href="/mac/"><span>Mac</span></a></li>
+		<li id="gn-ipod"><a href="/ipod/"><span>iPod</span></a></li>
+		<li id="gn-iphone"><a href="/iphone/"><span>iPhone</span></a></li>
+		<li id="gn-ipad"><a href="/ipad/"><span>iPad</span></a></li>
+		<li id="gn-itunes"><a href="/itunes/"><span>iTunes</span></a></li>
+		<li id="gn-support" class="gn-last"><a href="/support/"><span>Support</span></a></li>
+	</ul>
+	<!--googleon: all-->
+	<div id="globalsearch">
+		<form action="/search/" method="post" class="search" id="g-search"><div class="sp-label">
+			<label for="sp-searchtext">Search</label>
+			<input type="text" name="q" id="sp-searchtext" accesskey="s" />
+		</div></form>
+		<div id="sp-magnify"><div class="magnify-searchmode"></div><div class="magnify"></div></div>
+		<div id="sp-results"></div>
+	</div>
+</nav>
+<script type="text/javascript">
+	AC.GlobalNav.Instance = new AC.GlobalNav();
+</script>
+
+	<div id="top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+
+
+	
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+<script type="text/javascript">
+/* RSID: */
+
+var s_account="appleglobal,appleusother"
+
+</script>
+
+
+	<script type="text/javascript" src="http://images.apple.com/metrics/scripts/s_code_h.js"></script>
+
+
+
+<script type="text/javascript">
+
+s.pageName=AC.Tracking.pageName()+" (us)";
+
+	s.channel="www.us.sitemap"
+
+
+
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+	<div id="container">
+		<div id="main">
+			<div id="localnav">
+				<h1><img src="http://images.apple.com/sitemap/images/localnav_title20080701.gif" alt="Apple.com Site Map" width="284" height="31" /></h1>
+			</div>
+			<div id="content">
+				<div class="grid3col">
+					<h2><a href="/about/"><img src="http://images.apple.com/sitemap/images/title_appleinfo20080808.gif" alt="Apple Info" width="126" height="25" /></a></h2>
+					<div class="column first">
+						<h3>News and Events</h3>
+						<ul>
+							<li><a href="/hotnews/">Hot News</a></li>
+							<li><a href="/rss/">RSS Feeds</a></li>
+							<li><a href="/apple-events/">Apple Events</a></li>
+							<li><a href="/usergroups/">User Groups</a></li>
+						</ul>
+					</div>
+
+					<div class="column">
+						<h3>About Apple</h3>
+						<ul>
+							<li><a href="/contact/">Contact Us</a>
+								<ul>
+									<li><a href="/support/contact/">Support and Service</a></li>
+									<li><a href="http://www.apple.com/feedback/">Product Feedback</a></li>
+									<li><a href="/contact/feedback.html">Website Feedback</a></li>
+								</ul>
+							</li>
+							<li><a href="/pr/">Public Relations</a></li>
+							<li><a href="/investor/">Investors</a></li>
+							<li><a href="/jobs/us/index.html">Working at Apple</a></li>
+							<li><a href="/environment/">Environment</a></li>
+							<li><a href="/recycling/">Recycling</a></li>
+							<li><a href="/about/workingwithapple.html">Working with Apple</a>
+								<ul>
+									<li><a href="/procurement/">Procurement</a></li>
+									<li><a href="/supplierresponsibility/">Supplier Responsibility</a></li>
+								</ul>
+							</li>
+							<li><a href="/legal/">Legal Information</a></li>
+							<li><a href="/choose-your-country/">Choose your country or region</a></li>
+						</ul>
+					</div>
+
+					<div class="column last">
+						<h3>Where to Buy</h3>
+						<ul>
+							<li><a href="/buy/">Where can I buy Apple products?</a></li>
+							<li><a href="http://store.apple.com/us">Apple Online Store</a></li>
+							<li><a href="/smallbusiness/store/">Apple Store for Business</a></li>
+							<li><a href="http://store.apple.com/us-hed/?aid=AOS-US-Edu-.com-01162009">Apple Store for Education</a></li>
+							<li><a href="http://store.apple.com/Catalog/US/Images/intlstoreroutingpage.html">Apple Online Store Country Selector</a></li>
+							<li><a href="/retail/">Apple Retail</a></li>
+							<li><a href="/buy/locator/">Find a Reseller</a></li>
+							<li><a href="/financing/">Apple Financial Services</a></li>
+							<li><a href="/promo/">Apple Rebates</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="grid3col">
+					<h2><a href="/mac/"><img src="http://images.apple.com/sitemap/images/title_mac20070611.gif" alt="Mac" width="60" height="23" /></a></h2>
+					<div class="column first">
+						<h3>Considering a Mac</h3>
+						<ul>
+							<li><a href="/why-mac/">Why you&rsquo;ll love a Mac</a></li>
+							<li><a href="/why-mac/compare/">Compare all Macs</a></li>
+							<li><a href="/why-mac/faq/">FAQs</a></li>
+							<li><a href="/why-mac/try-a-mac/">Try a Mac</a></li>
+						</ul>
+						<h3>Find out how</h3>
+						<ul>
+							<li><a href="/findouthow/mac/">Mac Basics</a></li>
+							<li><a href="/findouthow/photos/">Photos</a></li>
+							<li><a href="/findouthow/movies/">Movies</a></li>
+							<li><a href="/findouthow/web/">Web</a></li>
+							<li><a href="/findouthow/music/">Music</a></li>
+							<li><a href="/findouthow/iwork/">iWork</a></li>
+						</ul>
+						<h3>Macs</h3>
+						<ul>
+							<li><a href="/mac-pro/">Mac Pro</a></li>
+							<li><a href="/mac-mini/">Mac mini</a></li>
+							<li><a href="/macbook-air/">MacBook Air</a></li>
+							<li><a href="/macbook-pro/">MacBook Pro</a></li>
+							<li><a href="/imac/">iMac</a></li>
+						</ul>
+						<h3>Accessories</h3>
+						<ul>
+							<li><a href="/magicmouse/">Magic Mouse</a></li>
+							<li><a href="/magictrackpad/">Magic Trackpad</a></li>
+							<li><a href="/keyboard/">Keyboard</a></li>
+							<li><a href="/displays/">Thunderbolt Display</a></li>
+							<li><a href="/battery-charger/">Apple Battery Charger</a></li>
+						</ul>
+						<h3>Wi-Fi Base Stations</h3>
+						<ul>
+							<li><a href="/airport-express/">AirPort Express</a></li>
+							<li><a href="/airport-extreme/">AirPort Extreme</a></li>
+							<li><a href="/airport-time-capsule/">AirPort Time Capsule</a></li>
+							<li><a href="/compare-wifi-models/">Which Wi-Fi are you?</a></li>
+						</ul>
+					</div>
+
+					<div class="column">
+						<h3>Servers</h3>
+						<ul>
+							<li><a href="/server/">Servers Overview</a></li>
+							<li><a href="/osx/server/">OS X Server</a></li>
+						</ul>
+						<h3>OS X</h3>
+						<ul>
+							<li><a href="/osx/">OS X Mountain Lion</a>
+								<ul>
+									<li><a href="/osx/whats-new/">What’s New</a></li>
+									<li><a href="/osx/what-is/">What is OS X?</a></li>
+									<li><a href="/osx/apps/">OS X Apps</a></li>
+									<li><a href="/osx/how-to-upgrade/">How to Upgrade</a></li>
+									<li><a href="/osx/specs/">Tech Specs</a></li>
+								</ul>
+							</li>
+						</ul>
+						<h3>Applications</h3>
+						<ul>
+							<li><a href="/ilife/">iLife</a>
+								<ul>
+									<li><a href="/ilife/iphoto/">iPhoto</a> | <a href="/ilife/imovie/">iMovie</a> |
+									<a href="/ilife/garageband/">GarageBand</a></li>
+								</ul>
+							</li>
+							<li><a href="/iwork/">iWork</a>
+								<ul>
+									<li><a href="/iwork/pages/">Pages</a> | <a href="/iwork/keynote/">Keynote</a> | <a href="/iwork/numbers/">Numbers</a></li>
+								</ul>
+							</li>
+							<li><a href="/ibooks-author/">iBooks Author</a></li>
+							<li><a href="/quicktime/">QuickTime 7</a></li>
+							<li><a href="/aperture/">Aperture</a></li>
+							<li><a href="/finalcutpro/">Final Cut Pro</a></li>
+							<li><a href="/finalcutpro/motion/">Motion</a></li>
+							<li><a href="/finalcutpro/compressor/">Compressor</a></li>
+							<li><a href="/logicpro/">Logic Pro</a></li>
+							<li><a href="/logicpro/mainstage/">MainStage</a></li>
+							<li><a href="/remotedesktop/">Apple Remote Desktop 3</a></li>
+						</ul>
+					</div>
+
+					<div class="column last">
+						<h3>Developer</h3>
+						<ul>
+							<li><a href="/developer/">Apple Developer Connection</a></li>
+							<li><a href="http://developer.apple.com/wwdc/">WWDC</a></li>
+							<li><a href="http://developer.apple.com/referencelibrary/">Reference Library</a></li>
+							<li><a href="http://developer.apple.com/contact/">Contact ADC</a></li>
+							<li><a href="http://developer.apple.com/products/mac/program/">Mac Developer Program</a></li>
+							<li><a href="http://developer.apple.com/programs/iphone/">iPhone Developer Program</a></li>
+						</ul>
+
+						<h3>Markets</h3>
+						<ul>
+							<li><a href="/pro/">Creative Pro</a></li>
+							<li><a href="/business/mac/">Business</a></li>
+						</ul>
+
+						<h3>Education</h3>
+						<ul>
+							<li><a href="/education/">For Teachers</a></li>
+							<li><a href="/students/">For Students</a></li>
+							<li><a href="http://store.apple.com/us-hed/findyourschool">Apple Online Store for Education</a></li>
+						</ul>
+
+						<h3>Support</h3>
+						<ul>
+							<li><a href="/buy/">Where can I buy a Mac?</a></li>
+							<li><a href="/support/products/">AppleCare</a></li>
+							<li><a href="/support/">Online Support</a></li>
+							<li><a href="/retail/geniusbar/">Genius Bar</a></li>
+							<li><a href="/retail/workshops/">Workshops</a></li>
+							<li><a href="/retail/learn/one-to-one/">One to One</a></li>
+							<li><a href="/accessibility/">Accessibility</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="grid3col">
+					<h2><a href="/ipod/"><img src="http://images.apple.com/sitemap/images/title_ipod20100225.gif" alt="iPod" width="63" height="23" /></a></h2>
+					<div class="column first">
+						<h3>iPod</h3>
+						<ul>
+							<li><a href="/ipod-touch/">iPod touch</a></li>
+							<li><a href="/ipodclassic/">iPod classic</a></li>
+							<li><a href="/ipod-nano/">iPod nano</a></li>
+							<li><a href="/ipod-shuffle/">iPod shuffle</a></li>
+							<li><a href="/product-red/">(PRODUCT) RED</a></li>
+							<li><a href="/ipod/compare-ipod-models/">Compare iPod Models</a></li>
+						</ul>
+					</div>
+
+					<div class="column">
+						<h3>More iPod</h3>
+						<ul>
+							<li><a href="/ipod/in-ear-headphones/">In-Ear Headphones</a></li>
+							<li><a href="/ipod/accessories/">Accessories</a></li>
+							<li><a href="/appletv/">Apple TV</a></li>
+							<li><a href="http://store.apple.com/us/browse/home/campaigns/corporate_gifting">Corporate Gifting</a></li>
+						</ul>
+						<h3><a href="/ipod/everywhere/">iPod Everywhere</a></h3>
+						<ul>
+							<li><a href="/ipod/nike/">Nike + iPod</a></li>
+							<li><a href="/ipod/car-integration/">iPod Car Integration</a></li>
+							<li><a href="/ipod/tours/">iPod Tours</a></li>
+						</ul>
+					</div>
+
+					<div class="column last">
+						<h3>iPod Resources</h3>
+						<ul>
+							<li><a href="/itunes/download/">Download iTunes</a></li>
+							<li><a href="/education/ipodtouch-iphone/">iPod touch in Education</a></li>
+							<li><a href="/students/ipodtouch-iphone/">iPod touch for Students</a></li>
+							<li><a href="/support/ipod/">iPod Support</a></li>
+							<li><a href="/accessibility/itunes/vision.html">Accessibility</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="grid4col">
+					<h2><a href="/iphone/"><img src="http://images.apple.com/sitemap/images/title_iphone20070611.gif" alt="iPhone" width="89" height="23" /></a></h2>
+					<div class="column first">
+						<h3>About iPhone 5</h3>
+						<ul>
+							<li><a href="/iphone/why-iphone/">Why iPhone</a></li>
+							<li><a href="/iphone/features/">Features</a></li>
+							<li><a href="/iphone/design/">Design</a></li>
+							<li><a href="/iphone/built-in-apps/">Built-in Apps</a></li>
+							<li><a href="/iphone/from-the-app-store/">App Store</a></li>
+							<li><a href="/iphone/ios/">iOS</a></li>
+							<li><a href="/iphone/icloud/">iCloud</a></li>
+							<li><a href="/iphone/specs.html">Tech Specs</a></li>
+						</ul>
+					</div>
+					<div id="dn-colb" class="column">
+						<h3>More iPhone</h3>
+						<ul>
+							<li><a href="/iphone/iphone-4s/specs.html">iPhone 4s Tech Specs</a></li>
+							<li><a href="/iphone/iphone-4/specs.html">iPhone 4 Tech Specs</a></li>
+							<li><a href="/iphone/compare-iphones/">Compare iPhone models</a></li>
+							<li><a href="/iphone/iphone-5/tips/">Tips and Tricks</a></li>
+							<li><a href="/education/ipodtouch-iphone/">iPhone in Education</a></li>
+							<li><a href="/students/ipodtouch-iphone/">iPhone for Students</a></li>
+							<li><a href="http://developer.apple.com/programs/iphone/">iOS for Developers</a></li>
+							<li><a href="/accessibility/iphone/vision.html">Accessibility</a></li>
+						</ul>
+					</div>
+					<div class="column">
+						<h3>iPhone in Business</h3>
+						<ul>
+							<li><a href="/iphone/business/">Overview</a></li>
+							<li><a href="/iphone/business/apps/">Apps</a></li>
+							<li><a href="/iphone/business/ios/">iOS</a></li>
+							<li><a href="/iphone/business/it-center/">IT Center</a></li>
+							<li><a href="/iphone/business/profiles/">Profiles</a></li>
+							<li><a href="/iphone/business/get-started/">Get Started</a></li>
+						</ul>
+					</div>
+					<div class="column last">
+						<h3>Support</h3>
+						<ul>
+							<li><a href="/iphone/buy/">Where to buy iPhone</a></li>
+							<li><a href="/support/iphone/">Online Support</a></li>
+							<li><a href="http://discussions.apple.com/category.jspa?categoryID=201">iPhone Discussions</a></li>
+							<li><a href="http://support.apple.com/manuals/#iphone">User Guide (PDF)</a></li>
+							<li><a href="/retail/workshops/">Workshops</a></li>
+							<li><a href="/retail/learn/one-to-one/">One to One</a></li>
+						</ul>
+					</div>
+				</div><!--/iphone-->
+
+				<div class="grid4col">
+					<h2><a href="/ipad/"><img src="http://images.apple.com/sitemap/images/title_ipad20100225.gif" alt="iPad" width="67" height="29" /></a></h2>
+					<div class="column first">
+						<h3>About iPad</h3>
+						<ul>
+							<li><a href="/ipad/why-ipad-retina/">Why iPad</a></li>
+							<li><a href="/ipad/features/">Features</a></li>
+							<li><a href="/ipad/design/">Design</a></li>
+							<li><a href="/ipad/built-in-apps/">Built-in Apps</a></li>
+							<li><a href="/ipad/from-the-app-store/">From the App Store</a></li>
+							<li><a href="/ipad/ios/">iOS</a></li>
+							<li><a href="/ipad/icloud/">iCloud</a></li>
+							<li><a href="/ipad/ultrafast-wireless/">Ultrafast Wireless</a></li>
+							<li><a href="/ipad/specs/">Tech Specs</a></li>
+						</ul>
+					</div>
+					<div class="column">
+						<h3>About iPad mini</h3>
+						<ul>
+							<li><a href="/ipad-mini/why-ipad-mini/">Why iPad</a></li>
+							<li><a href="/ipad-mini/features/">Features</a></li>
+							<li><a href="/ipad-mini/design/">Design</a></li>
+							<li><a href="/ipad-mini/built-in-apps/">Built-in Apps</a></li>
+							<li><a href="/ipad-mini/from-the-app-store/">From the App Store</a></li>
+							<li><a href="/ipad-mini/ios/">iOS</a></li>
+							<li><a href="/ipad-mini/icloud/">iCloud</a></li>
+							<li><a href="/ipad-mini/ultrafast-wireless/">Ultrafast Wireless</a></li>
+							<li><a href="/ipad-mini/specs/">Tech Specs</a></li>
+						</ul>
+					</div>
+					<div class="column">
+						<h3>More iPad</h3>
+						<ul>
+							<li><a href="/ipad/why-ipad/">Why iPad</a></li>
+							<li><a href="/ipad/compare/">Compare iPad models</a></li>
+							<li><a href="/ipad/accessories/">Accessories</a></li>
+							<li><a href="/ipad/business/">iPad in Business</a></li>
+							<li><a href="/education/ipad/">iPad in Education</a></li>
+							<li><a href="http://developer.apple.com/ipad/sdk/">iPad for Developers</a></li>
+							<li><a href="/accessibility/ipad/vision.html">Accessibility</a></li>
+							<li><a href="/batteries/ipad.html">Batteries</a></li>
+							<li><a href="/icloud/features/find-my-iphone.html">Find my iPad</a></li>
+							<li><a href="/product-red/">(PRODUCT) RED</a></li>
+						</ul>
+					</div>
+					<div class="column last">
+						<h3>Support</h3>
+						<ul>
+							<li><a href="/support/products/ipad.html">AppleCare+</a></li>
+							<li><a href="/support/ipad/">Online Support</a></li>
+							<li><a href="http://manuals.info.apple.com/en_US/iPad_User_Guide.pdf">User Guide</a></li>
+							<li><a href="http://discussions.apple.com/category.jspa?categoryID=267">Discussions</a></li>
+							<li><a href="/retail/workshops/">Workshops</a></li>
+							<li><a href="/retail/learn/one-to-one/">One to One</a></li>
+						</ul>
+					</div>
+				</div><!--/ipad-->
+
+				<div class="grid3col">
+					<h2><a href="/itunes/"><img src="http://images.apple.com/sitemap/images/title_itunes20100225.gif" alt="iTunes" width="84" height="23" /></a></h2>
+					<div class="column first">
+						<h3>iTunes</h3>
+						<ul>
+							<li><a href="/itunes/download/">Download iTunes</a></li>
+							<li><a href="/itunes/what-is/">What is iTunes?</a></li>
+							<li><a href="/itunes/whats-on/">What’s on iTunes</a></li>
+							<li><a href="/itunes/charts/songs/">iTunes Charts</a></li>
+							<li><a href="/itunes/how-to/">How Tos</a></li>
+						</ul>
+					</div>
+
+					<div class="column">
+						<h3>More iTunes</h3>
+						<ul>
+							<li><a href="/itunes/digital-music-basics/">Digital Music Basics</a></li>
+							<li><a href="/itunes/gifts/">iTunes Gifts</a></li>
+							<li><a href="/education/itunes-u/">iTunes U</a></li>
+							<li><a href="/support/ipod/">iPod + iTunes Support</a></li>
+							<li><a href="/accessibility/itunes/vision.html">Accessibility</a></li>
+						</ul>
+
+						<h3>Partner with iTunes</h3>
+						<ul>
+							<li><a href="/itunes/partners/">Overview</a></li>
+							<li><a href="/itunes/content-providers/">Content Providers</a></li>
+							<li><a href="/itunes/companies/">Companies and Organizations</a></li>
+							<li><a href="/itunes/lp-and-extras/">iTunes LP and iTunes Extras</a></li>
+						</ul>
+					</div>
+
+					<div class="column last">
+						<h3>iTunes Store</h3>
+						<ul>
+							<li><a href="http://itunes.apple.com/us/browse/">Browse iTunes Store</a></li>
+							<li><a href="http://itunes.apple.com/us/genre/mobile-software-applications/id36?mt=8">Browse App Store</a></li>
+							<li><a href="http://itunes.apple.com/us/store">Buy Music Now</a></li>
+							<li><a href="http://store.apple.com/us/browse/home/giftcards/itunes/gallery">Buy iTunes Gift Cards</a></li>
+							<li><a href="https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/redeemLandingPage">Redeem iTunes Gift Cards</a></li>
+							<li><a href="/itunes/corporatesales/">iTunes Corporate Sales</a></li>
+							<li><a href="/education/volume-purchase-program/">App Store Volume Purchase</a></li>
+							<li><a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewCustomPage?name=pageSOTW">Free Single of the Week</a></li>
+							<li><a href="/itunesnews/us/">New On iTunes</a></li>
+							<li><a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/iTunesPlusPage">iTunes Plus</a></li>
+							<li><a href="/feedback/itunes.html">Music Requests</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="grid3col">
+					<h2><img src="http://images.apple.com/sitemap/images/title_ios_and_icloud.gif" alt="iOS and iCloud" width="171" height="23" /></h2>
+					<div class="column first">
+						<h3>iOS</h3>
+						<ul>
+							<li><a href="/ios/">Overview</a></li>
+							<li><a href="/ios/whats-new/">What's New</a></li>
+							<li><a href="/ios/what-is/">What Is iOS</a></li>
+						</ul>
+					</div>
+
+					<div class="column">
+						<h3>iOS Applications</h3>
+						<ul>
+							<li><a href="/apps/iphoto/">iPhoto</a></li>
+							<li><a href="/apps/imovie/">iMovie</a></li>
+							<li><a href="/apps/garageband/">GarageBand</a></li>
+							<li><a href="/apps/iwork/pages/">Pages</a></li>
+							<li><a href="/apps/iwork/keynote/">Keynote</a></li>
+							<li><a href="/apps/iwork/numbers/">Numbers</a></li>
+							<li><a href="/apps/cards/">Cards</a></li>
+							<li><a href="/apps/itunes-u/">iTunes U</a></li>
+							<li><a href="/apps/remote/">Remote</a></li>
+						</ul>
+					</div>
+
+					<div class="column last">
+						<h3>iCloud</h3>
+						<ul>
+							<li><a href="/icloud/">Overview</a></li>
+							<li><a href="/icloud/features/">Features</a></li>
+							<li><a href="/icloud/setup/">How to Set Up</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="grid3col">
+					<h2 class="noh3"><a href="/downloads/"><img src="http://images.apple.com/sitemap/images/title_downloads20070611.gif" alt="Downloads" width="134" height="23" /></a></h2>
+					<div class="column first">
+						<ul>
+							<li><a href="/itunes/download/">Download iTunes</a></li>
+							<li><a href="/quicktime/download/">Download Quicktime</a></li>
+						</ul>
+					</div>
+
+					<div class="column">
+						<ul>
+							<li><a href="/ios/">iOS Software Update</a></li>
+							<li><a href="http://support.apple.com/downloads/">Apple Software Updates</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="grid3col">
+					<h2 class="noh3"><a href="/support/"><img src="http://images.apple.com/sitemap/images/title_support20070611.gif" alt="Support" width="102" height="24" /></a></h2>
+					<div class="column first">
+						<ul>
+							<li><a href="/support/contact/">Contact Support</a></li>
+							<li><a href="/support/">Online Support &amp; Service</a></li>
+							<li><a href="http://discussions.apple.com/">Apple Discussions</a></li>
+							<li><a href="/support/downloads/">Downloads and Updates</a></li>
+							<li><a href="/support/manuals/">Product Manuals</a></li>
+						</ul>
+					</div>
+
+					<div class="column">
+						<ul>
+							<li><a href="/support/products/">AppleCare Products &amp; Services</a></li>
+							<li><a href="/support/diy/">Request a Repair or Parts (DIY)</a></li>
+							<li><a href="/support/repairstatus/">Check Repair Status</a></li>
+							<li><a href="/support/exchange_repair/">Exchange + Repair Extension Programs</a></li>
+							<li><a href="/support/programs/">Apple Service Programs</a></li>
+						</ul>
+					</div>
+
+					<div class="column last">
+						<ul>
+							<li><a href="/training/">Apple Training</a></li>
+							<li><a href="/consultants/">Apple Consultants Network</a></li>
+							<li><a href="/support/find/">Support Site Map</a></li>
+						</ul>
+					</div>
+				</div>
+			</div><!--/content-->
+		</div><!--/main-->
+	</div><!--/container-->
+	<footer id="globalfooter">
+		<div id="breadory">
+			<ol id="breadcrumbs">
+				<li class="home"><a href="/">Home</a></li>
+				<li>Site Map</li>
+			</ol>
+		</div><!--/breadory-->
+		<p class="gf-buy">Shop the <a href="http://store.apple.com/us">Apple Online Store</a> (1-800-MY-APPLE), visit an <a href="/retail/">Apple Retail Store</a>, or find a <a href="/buy/">reseller</a>.</p>
+
+<ul class="gf-links piped">
+	<li><a href="/about/" class="first">Apple Info</a></li>
+	<li><a href="/sitemap/">Site Map</a></li>
+	<li><a href="/hotnews/">Hot News</a></li>
+	<li><a href="/rss/">RSS Feeds</a></li>
+	<li><a href="/contact/" class="contact_us">Contact Us</a></li>
+	<li><a href="/choose-your-country/" class="choose"><img src="http://images.apple.com/global/elements/flags/22x22/usa.png" alt="Choose your country or region" width="22" height="22" data-hires="true" /></a></li>
+</ul>
+
+<div class="gf-sosumi">
+	<p>Copyright © 2013 Apple Inc. All rights reserved.</p>
+	<ul class="piped">
+		<li><a href="/legal/internet-services/terms/site.html" class="first">Terms of Use</a></li>
+		<li><a href="/privacy/">Privacy Policy</a></li>
+	</ul>
+</div>
+
+
+	</footer><!--/globalfooter-->
+</body>
+</html>

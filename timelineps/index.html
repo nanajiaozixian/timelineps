@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Timeline</title>
+<link href="css/style.css" type="text/css" rel="stylesheet"></link>
+<script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+ <script type="text/javascript">
+    
+        $(document).ready(function() {
+         
+              setInterval( function() {
+              var seconds = new Date().getSeconds();
+              var sdegree = seconds * 6;
+              var srotate = "rotate(" + sdegree + "deg)";
+              
+              $("#sec").css({"-moz-transform" : srotate, "-webkit-transform" : srotate});
+                  
+              }, 1000 );
+              
+         
+              setInterval( function() {
+              var hours = new Date().getHours();
+              var mins = new Date().getMinutes();
+              var hdegree = hours * 30 + (mins / 2);
+              var hrotate = "rotate(" + hdegree + "deg)";
+              
+              $("#hour").css({"-moz-transform" : hrotate, "-webkit-transform" : hrotate});
+                  
+              }, 1000 );
+        
+        
+              setInterval( function() {
+              var mins = new Date().getMinutes();
+              var mdegree = mins * 6;
+              var mrotate = "rotate(" + mdegree + "deg)";
+              
+              $("#min").css({"-moz-transform" : mrotate, "-webkit-transform" : mrotate});
+                  
+              }, 1000 );
+         
+        }); 
+    
+    </script>
+</head>
+
+<body>
+<div id="separation"></div>
+<div id="main_page_container">
+	<div id="header">
+    	<div id="logo"><a href="http://www.wartisan.com" target="_blank">TIMELINE</a></div>
+	</div><!--end header-->  
+    <div id="main_content">
+    	<div id="left">
+    		<div id="cloktext"></div>
+            <div>
+            	<ul id="clock">	
+	   				<li id="sec"></li>
+	   				<li id="hour"></li>
+					<li id="min"></li>
+				</ul>
+            </div>
+        </div>
+        <div id="right">
+        	<p><a href="www.wartisan.com" target="_blank"><span>Wartisan</span></a> Timeline is a snapshot tool to store and show every step of your pages' development, the history, now and the future.</p>
+            <div id="try_for_free">
+            	<p>Try it for <span>FREE</span> now!</p>
+            	<button id="try_btn" class="btn"></button>
+            </div>
+            <div id="login_signup">
+            	<div id="login">
+            		<img src="img/login_t.jpg"/>
+                	<p>To be safe, please log in first.</p>
+                	<input id="username" type="text" class="clogin" value="Username" /><span id="un_right" class='bright'></span>
+                	<input id="password" type="text" class="clogin" value="Password" /><span id="psw_right" class='bright'></span>
+                  <button id="login_btn" class="btn"></button>
+                    
+            	</div>
+           		<div id="separationline"></div>
+                <div id="signup">
+                	<img src="img/register_t.jpg"/>
+                    <p><span>Free Account</span></p>
+                	<p>Free to build your timeline. <br/>Wartisan will help record <br/>every 
+						change of your web page!</p>
+                    <button id="signup_btn" class="btn"></button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div><!--end main_page_container-->
+
+<div id="snapshot_page_container">
+	
+	<div id="content_snp">
+    	<div id="main_snp">
+    		<div id="loading"></div>
+				<p>Enter your page  URL here</p>
+        <textarea id="pageurl" rows="2" cols="40"></textarea>
+        <div id="btn_snp">
+        	<button id="back" class="cbtn_snp"></button>
+        	<button id="takesnap"  title="snapshot"></button>             
+          <button id="show" class="cbtn_snp"></button>
+
+        </div>
+        
+      </div>
+      
+	</div>
+	
+	
+	
+
+</div><!--end snapshot_page_container-->
+
+<div id="show_timeline_page_container">
+	<div id="leftbar_st">
+  	
+  	<div id="timeline">
+  		<ul id="dates">
+  		</ul>
+  		<ul id="issues">
+  		</ul>
+  	</div><!--end timeline-->
+  </div><!--end leftbar-->
+  <div id="right_st">
+	<iframe id="webpage" name="webpage" src=""></iframe>
+	<iframe id="hidepage" name="hidepage" src=""></iframe>
+  </div>
+</div>
+</body>
+</html>
