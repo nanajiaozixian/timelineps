@@ -8,7 +8,7 @@ DB: timelinedb
 */
 create table users
 ( userid int unsigned not null auto_increment primary key,
-	username char(50) not null,
+	username char(50),///ÐÞ¸Ä¹ý
 	email char(100) not null,
 	password char(50) not null
 );

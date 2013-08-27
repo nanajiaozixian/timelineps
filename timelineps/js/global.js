@@ -1,20 +1,24 @@
 window.onload = function(){
-	var g_username = "Username";
+	var g_username = "Email";
 	var g_password = "Password";
 	var g_userid = 0;
 	var g_pagerid = 0;
 	var g_pageurl="";//保存用户输入的url
 	var copy_file_path = "";//保存hidepage 里的页面地址
 	var g_blogin = false;
+	var g_bsnaping = false;
 	document.getElementById("username").value = g_username;
 	document.getElementById("password").value = g_password;
 	document.getElementById("takesnap").disabled=false;
 	var g_pageversion = "pageversion";
-	showPageTimeline(2);
+	//showPageTimeline(2);
 	$("#try_btn").click(function(){
-		$("#separation").css("display", "none");
+		/*$("#separation").css("display", "none");
 		$("#main_page_container").css("display", "none");
+		$("#footer").css("display", "none");
 		$("#snapshot_page_container").css("display", "block");
+		*/
+		showSnapshotPage();
 		if(g_blogin){
 			return;
 		}
@@ -33,9 +37,11 @@ window.onload = function(){
 	});
 	
 	$("#back").click(function(){		
-		$("#snapshot_page_container").css("display", "none");
+		/*$("#snapshot_page_container").css("display", "none");
 		$("#main_page_container").css("display", "block");
 		$("#separation").css("display", "block");
+		$("#footer").css("display", "block");*/
+		showHomePage();
 	});
 	
 	//login
@@ -113,6 +119,29 @@ $("#password").blur(function() {
 	
 });
 
+
+//sign up
+var g_bSignup = false;
+$("#signup_btn").click(function(){
+	if(g_bSignup == false){
+  	$("#signup_info").css("display", "none");
+  	$(".c_input_signup").css("display", "block");
+  	document.getElementById("email_sign").value = g_username;
+		document.getElementById("password_sign").value = g_password;
+  	g_bSignup = true;
+	}
+});
+
+$("#signup_img").click(function(){
+	if(g_bSignup == true){
+  	
+  	$(".c_input_signup").css("display", "none");
+  	$("#signup_info").css("display", "block");
+  	
+  	g_bSignup = false;
+	}
+});
+//snapshot
 $("#takesnap").click(function(){
 	var pageurl_str = document.getElementById("pageurl").value;
 	g_pageurl = pageurl_str;
@@ -128,7 +157,7 @@ $("#takesnap").click(function(){
   	}
   	
   });
-  
+  g_bsnaping = true;
  // $("#content_snp").css("opacity","0.3");
   $("#loading").css("display","block");
   document.getElementById("takesnap").disabled=true;
@@ -175,14 +204,16 @@ function addIFrameEvents(){
 		  	//dataType: "json",//希望回调函数返回的数据类型
 		  	success:function(ms){
 		  			g_pagerid = ms;
-		  			console.log("js:g_pagerid:"+g_pagerid);
+		  			/*console.log("js:g_pagerid:"+g_pagerid);
 		  			$("#loading").css("display","none");
 		  			$("#snapshot_page_container").css("display","none");
       			$("#header").css("display","block");
       			$("#separation").css("display","block");	
       			$("#main_page_container").css("display","block");
       			$("#show_timeline_page_container").css("display","block");
-      			$("#main_content").css("display","none");
+      			$("#main_content").css("display","none");*/
+      			showTimelinePage();
+      			g_bsnaping = false;
       			document.getElementById("takesnap").disabled=false;
       			showPageTimeline(g_pagerid);
 		  		}
@@ -255,6 +286,65 @@ function drawTimeline(filesPath){
 		});
 	
 	
+}
+
+$("#navigation").click(function(e){
+	switch (e.target.id) {
+		case "homepage":
+			showHomePage();
+			break;
+		case "snapshotpage":
+			showSnapshotPage();
+			break;
+		case "showtimelinepage":
+			showTimelinePage();
+			break;
+		default:
+			break;
+	}
+	
+});
+function showHomePage(){
+	$("#loading").css("display","none");
+	$("#snapshot_page_container").css("display","none");
+	$("#show_timeline_page_container").css("display","none");
+	$("#header").css("display","block");
+	$("#separation").css("display","block");	
+	$("#main_page_container").css("display","block");
+	$("#main_content").css("display","block");
+	$("#footer").css("display", "block");
+      			
+}
+function showSnapshotPage(){
+	if(g_bsnaping == false){
+		$("#loading").css("display","none");
+	}else{
+		$("#loading").css("display","block");
+	}
+	
+	
+	$("#show_timeline_page_container").css("display","none");
+	$("#header").css("display","none");
+	$("#separation").css("display","none");	
+	$("#main_page_container").css("display","none");
+	$("#main_content").css("display","none");
+	$("#footer").css("display", "none");
+	$("#snapshot_page_container").css("display","block");
+	
+      			
+}
+
+function showTimelinePage(){
+	$("#loading").css("display","none");
+	$("#snapshot_page_container").css("display","none");
+	$("#main_content").css("display","none");
+	$("#show_timeline_page_container").css("display","block");
+	$("#header").css("display","block");
+	$("#separation").css("display","block");	
+	$("#main_page_container").css("display","block");
+	$("#footer").css("display", "block");
+	
+      			
 }
 
 }

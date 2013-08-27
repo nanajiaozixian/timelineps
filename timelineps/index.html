@@ -52,6 +52,13 @@
 <div id="main_page_container">
 	<div id="header">
     	<div id="logo"><a href="http://www.wartisan.com" target="_blank">TIMELINE</a></div>
+    	
+    		<ul id="navigation">
+    			<li id="homepage">HOME //</li>
+    			<li id="snapshotpage">SNAPSHOT //</li>
+    			<li id="showtimelinepage">TIMELINE</li>
+    		</ul>
+    	
 	</div><!--end header-->  
     <div id="main_content">
     	<div id="left">
@@ -74,18 +81,20 @@
             	<div id="login">
             		<img src="img/login_t.jpg"/>
                 	<p>To be safe, please log in first.</p>
-                	<input id="username" type="text" class="clogin" value="Username" /><span id="un_right" class='bright'></span>
+                	<input id="username" type="text" class="clogin" value="Email" /><span id="un_right" class='bright'></span>
                 	<input id="password" type="text" class="clogin" value="Password" /><span id="psw_right" class='bright'></span>
                   <button id="login_btn" class="btn"></button>
                     
             	</div>
            		<div id="separationline"></div>
                 <div id="signup">
-                	<img src="img/register_t.jpg"/>
+                	<img id="signup_img" src="img/register_t.jpg"/>
                     <p><span>Free Account</span></p>
-                	<p>Free to build your timeline. <br/>Wartisan will help record <br/>every 
+                		<p id="signup_info">Free to build your timeline. <br/>Wartisan will help record <br/>every 
 						change of your web page!</p>
-                    <button id="signup_btn" class="btn"></button>
+									<input id="email_sign" type="text" class="c_input_signup" value="Email" /><span id="un_right" class='bright'></span>
+                	<input id="password_sign" type="text" class="c_input_signup" value="Password" /><span id="psw_right" class='bright'></span>
+                  <button id="signup_btn" class="btn"></button>
                 </div>
             </div>
         </div>
@@ -134,5 +143,6 @@
 	<iframe id="hidepage" name="hidepage" src=""></iframe>
   </div>
 </div>
+<div id="footer">Copyright © 2013 - All Rights Reserved - www.wartisan.com</div>
 </body>
 </html>
