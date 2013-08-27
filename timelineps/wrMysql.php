@@ -44,11 +44,11 @@ function getMaxPageVersion($pageid_in){
 		return 1;
 	}
 	if(mysql_num_rows($result) >0){
-		$query = "select version, versionid from pages where version = (select max(version) from pages)";
+		$query = "select pageid, max(version) as maxversion from pages where pages.pageid = '".$pageid_in."' group by pageid";
 		$result=mysql_query($query);
 		if(mysql_num_rows($result) > 0){
 		while ($row = mysql_fetch_assoc($result)) {
-        return $row['version']+1;
+        return $row['maxversion']+1;
     }
 	}
 	}

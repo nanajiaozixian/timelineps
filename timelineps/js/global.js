@@ -43,7 +43,9 @@ window.onload = function(){
 		$("#footer").css("display", "block");*/
 		showHomePage();
 	});
-	
+	$("#show").click(function(){
+		showTimelinePage();
+	});
 	//login
 	
 	$("#login_btn").click(function(){

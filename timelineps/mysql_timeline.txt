@@ -1,5 +1,14 @@
-DB: timelinedb
-用户名： timeline  密码： hitimeline
+//创建数据库timelinedb：
+
+create database timelinedb;
+
+
+//创建一个用户给他提供操作my_db的权利(用户名： timeline  密码： hitimeline)：
+CREATE USER 'timeline'@'localhost' IDENTIFIED BY 'hitimeline';
+
+grant select, insert, delete, update
+on timelinedb.*
+to timeline identified by 'hitimeline';
 /*创建users表格
 属性：usersid 用户ID ，不需要写，会自动添加
 			username 用户名
@@ -8,7 +17,7 @@ DB: timelinedb
 */
 create table users
 ( userid int unsigned not null auto_increment primary key,
-	username char(50),///修改过
+	username char(50),
 	email char(100) not null,
 	password char(50) not null
 );

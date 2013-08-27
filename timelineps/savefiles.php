@@ -72,11 +72,16 @@ $page_folder = $main_file_init;//网页的总文件夹名字，根据域名定义，如www.adobe.c
 }else{
 	$page_folder = "index";
 }
+$collection_name = $page_folder.".".$folder_name;
 $page_id = getPageId($userid, $collection_name);
+$temp_id = getPageId($userid, $collection_name);
+$page_id = $temp_id;
+
+//echo "page_id: $page_id, userid: $userid, collection_name: $collection_name";
 $max_ver = getMaxPageVersion($page_id);
 $v = $max_ver;
 
-$collection_name = $page_folder.".".$folder_name;
+
 $version_template = "pages".DIRECTORY_SEPARATOR.$folder_name.DIRECTORY_SEPARATOR.$page_folder.DIRECTORY_SEPARATOR.VERSIONS.DIRECTORY_SEPARATOR.V;
 $version = $version_template.$v; //version路径: versions\v0 
 $others = $version.DIRECTORY_SEPARATOR.OTHERS; //others路径: versions\v0\others
@@ -105,6 +110,7 @@ file_put_contents($version.DIRECTORY_SEPARATOR.$main_file, $str);
 $verpagepath_local = $version.DIRECTORY_SEPARATOR.$local_file;// html的local文件储存的地址
 saveFiles($str_file);
 //addToDB();//MongoDB
+//echo $page_id;
 addToMysql();
 echo $page_id;
 }
@@ -497,6 +503,7 @@ function addToMysql(){
 	date_default_timezone_set('America/Los_Angeles');
 	$today = date("Y-m-d H:i:s");
 	$query = "insert into pages values (NULL, '".$v."', '".$today."', '".$path."', NULL, '".$page_id."')";
+	//echo "query: $query";
 	$result = mysql_query($query);
 	if(!$result){
 		die("Insert failure!".mysql_error());
