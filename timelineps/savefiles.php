@@ -72,6 +72,10 @@ $page_folder = $main_file_init;//网页的总文件夹名字，根据域名定义，如www.adobe.c
 }else{
 	$page_folder = "index";
 }
+$page_id = getPageId($userid, $collection_name);
+$max_ver = getMaxPageVersion($page_id);
+$v = $max_ver;
+
 $collection_name = $page_folder.".".$folder_name;
 $version_template = "pages".DIRECTORY_SEPARATOR.$folder_name.DIRECTORY_SEPARATOR.$page_folder.DIRECTORY_SEPARATOR.VERSIONS.DIRECTORY_SEPARATOR.V;
 $version = $version_template.$v; //version路径: versions\v0 
@@ -80,9 +84,7 @@ $cssfolder = $version.DIRECTORY_SEPARATOR.OTHERS.DIRECTORY_SEPARATOR.CSS; //othe
 $imgfolder = $version.DIRECTORY_SEPARATOR.OTHERS.DIRECTORY_SEPARATOR.IMG.DIRECTORY_SEPARATOR;
 
 //获取pageid
-$page_id = getPageId($userid, $collection_name);
-$max_ver = getPageVersion($page_id);
-$v = ($max_ver==0)? 0: ($max_ver+1);
+
 
 //建version文件夹
 createFolder($cssfolder);
@@ -104,7 +106,7 @@ $verpagepath_local = $version.DIRECTORY_SEPARATOR.$local_file;// html的local文件
 saveFiles($str_file);
 //addToDB();//MongoDB
 addToMysql();
-echo 'true';
+echo $page_id;
 }
 /********************************************************************各种函数************************************************************************************/
 
@@ -490,6 +492,7 @@ function addToMysql(){
 	global $verpagepath_local;
 	global $collection_name;
 	global $v;
+	global $page_id;
 	$path = preg_replace("/\\\\/","\\\\\\",$verpagepath_local);
 	date_default_timezone_set('America/Los_Angeles');
 	$today = date("Y-m-d H:i:s");

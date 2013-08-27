@@ -21,7 +21,7 @@ body{
 	margin-right: -200px;
 }
 #main_page_container{
-/*display: none;*/
+display: none;
 	position: relative;
 	margin: 0 auto;
 	width: 1070px;
@@ -295,10 +295,10 @@ textarea{
 /*****show_timeline_page*************/
 
 #show_timeline_page_container{
-	display: none;
+	display: block;
 	position: absolute;
 	top: 90px;
-	height: 700px;
+	height: 1000px;
 	width: 100%;
 	background: black;
 }
@@ -320,6 +320,7 @@ textarea{
 	float: right;
 }
 #leftbar_st{
+	margin-left: 10px;
 	width: 10%;
 	float: left;
 }

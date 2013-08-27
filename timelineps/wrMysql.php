@@ -26,33 +26,51 @@ function getPageId($userid_in, $pagename_in){
     	die("Insert failure".mysql_error());
 		}
 		getPageId($userid_in, $pagename_in);
-	}
-	if(mysql_num_rows($result) > 0){
+	}else if(mysql_num_rows($result) > 0){
 		while ($row = mysql_fetch_assoc($result)) {
-        echo $row['pageid'];
         return $row['pageid'];
     }
 	}
 }
 
 
-function getPageVersion($pageid_in){
+function getMaxPageVersion($pageid_in){
 	$query = "select versionid from pages where pages.pageid = '".$pageid_in."'";
 	$result=mysql_query($query);
 	if (!$result) {
     die("Could not find".mysql_error());
 	}
 	if(mysql_num_rows($result) <= 0){
-		return 0;
+		return 1;
 	}
 	if(mysql_num_rows($result) >0){
 		$query = "select version, versionid from pages where version = (select max(version) from pages)";
 		$result=mysql_query($query);
 		if(mysql_num_rows($result) > 0){
 		while ($row = mysql_fetch_assoc($result)) {
-        return $row['version'];
+        return $row['version']+1;
     }
 	}
 	}
+}
+
+
+function getPageVersions($pageid_in){
+	$versions_arr = array();
+	$query = "select * from pages where pages.pageid = '".$pageid_in."' order by version desc";
+	$result = mysql_query($query);
+	if (!$result) {
+    die("Could not find".mysql_error());
+	}
+	if(mysql_num_rows($result) <= 0){
+		return null;//网页没有存任何版本
+	}
+	if(mysql_num_rows($result) > 0){
+		while ($row = mysql_fetch_assoc($result)) {
+        array_push($versions_arr, $row);
+    }
+  }
+  
+  return $versions_arr;
 }
 ?>

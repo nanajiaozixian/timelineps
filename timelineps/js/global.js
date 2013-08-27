@@ -2,21 +2,29 @@ window.onload = function(){
 	var g_username = "Username";
 	var g_password = "Password";
 	var g_userid = 0;
+	var g_pagerid = 0;
 	var g_pageurl="";//保存用户输入的url
 	var copy_file_path = "";//保存hidepage 里的页面地址
+	var g_blogin = false;
 	document.getElementById("username").value = g_username;
 	document.getElementById("password").value = g_password;
 	document.getElementById("takesnap").disabled=false;
+	var g_pageversion = "pageversion";
+	showPageTimeline(2);
 	$("#try_btn").click(function(){
 		$("#separation").css("display", "none");
 		$("#main_page_container").css("display", "none");
 		$("#snapshot_page_container").css("display", "block");
+		if(g_blogin){
+			return;
+		}
 		$.ajax({
 			type:"POST",
 			url:"login.php",
 			data:{username: "timeline", password: "timeline"},
 			success:function(ms){
 				g_userid = ms;
+				g_blogin = true;
 			},
 			error:function(ms){
 				console.log(ms);
@@ -165,7 +173,9 @@ function addIFrameEvents(){
 		  	url:"download.php",
 		  	data:{csshref: hrefs, jssrcs: srcs, page: g_pageurl, copyfile:copy_file_path, userid:g_userid},
 		  	//dataType: "json",//希望回调函数返回的数据类型
-		  	success:function(json){
+		  	success:function(ms){
+		  			g_pagerid = ms;
+		  			console.log("js:g_pagerid:"+g_pagerid);
 		  			$("#loading").css("display","none");
 		  			$("#snapshot_page_container").css("display","none");
       			$("#header").css("display","block");
@@ -174,13 +184,77 @@ function addIFrameEvents(){
       			$("#show_timeline_page_container").css("display","block");
       			$("#main_content").css("display","none");
       			document.getElementById("takesnap").disabled=false;
+      			showPageTimeline(g_pagerid);
 		  		}
 		  });
   			
   			
   		}
   	}
-  }
+}
 
+
+function showPageTimeline(pageid_in){
+  $.ajax({
+  	type:"POST",
+  	url:"showTimeline.php",
+  	data:{pageid: pageid_in},
+  	//dataType: "json",//希望回调函数返回的数据类型
+  	success:function(json){
+  		getProfile(json);
+  		//console.log(json);
+  	}
+  });
+}
+
+function getProfile(json){
+			
+			var paths = eval("("+json+")");
+			if(paths==null){
+				alert("The page has not any local vertion now. Go to make some snapshots now!");
+				return;
+			}
+			drawTimeline(paths);
+			 	
+}
+
+
+function drawTimeline(filesPath){
+			
+		
+			$("#dates").empty();
+				for(var i=0; i<filesPath.length;i++){
+
+				if(filesPath[i]['path']!=null){
+						filesPath[i]['path'] = filesPath[i]['path'].replace(/\\/g, "/");
+					}
+				$("#dates").append(
+					'<li><a href="#'+filesPath[i]['version']+'" path="'+filesPath[i]['path']+'">v'+filesPath[i]['version']+'</a></li>');
+				
+				if(filesPath[i]['information']==null){
+					filesPath[i]['information'] = "Nothing have been updated in this version!";
+				}
+  			$("#issues").append(
+  			'<li id='+filesPath[i]['version']+'>'+
+  			'<h1>'+filesPath[i]['time']+'</h1>'+
+  			'<p>'+filesPath[i]['information']+'</p>'+
+  			'</li>');
+				
+				}
+			
+			var startpos = filesPath.length/2+1;
+			//timline插件
+			$(function(){
+			$().timelinr({
+				orientation: 	'vertical',
+				issuesSpeed: 	300,
+				datesSpeed: 	100,
+				arrowKeys: 		'true',
+				startAt:		startpos
+			})
+		});
+	
+	
+}
 
 }
