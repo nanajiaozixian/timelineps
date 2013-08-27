@@ -500,7 +500,7 @@ function addToMysql(){
 	global $v;
 	global $page_id;
 	$path = preg_replace("/\\\\/","\\\\\\",$verpagepath_local);
-	date_default_timezone_set('America/Los_Angeles');
+	date_default_timezone_set('UTC');
 	$today = date("Y-m-d H:i:s");
 	$query = "insert into pages values (NULL, '".$v."', '".$today."', '".$path."', NULL, '".$page_id."')";
 	//echo "query: $query";
