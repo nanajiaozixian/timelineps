@@ -1,5 +1,5 @@
 <?php
-require_once "global.php";
+include_once("global.php");
 
 $url = "";
 //»ñÈ¡ÍøÒ³url

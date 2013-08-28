@@ -11,6 +11,22 @@ window.onload = function(){
 	document.getElementById("password").value = g_password;
 	document.getElementById("takesnap").disabled=false;
 	var g_pageversion = "pageversion";
+	
+	//test
+	/*$.ajax({
+		  	type:"POST",
+		  	url:"download.php",
+		  	data:{page: "http://www.wartisan.com/BB.html", copyfile:"copy.html", userid:"1"},
+		  	//dataType: "json",//希望回调函数返回的数据类型
+		  	success:function(ms){
+		  			g_pagerid = ms;
+		  			
+      			showTimelinePage();
+      			g_bsnaping = false;
+      			document.getElementById("takesnap").disabled=false;
+      			showPageTimeline(g_pagerid);
+		  		}
+		  });*/
 	//showPageTimeline(2);
 	$("#try_btn").click(function(){
 		/*$("#separation").css("display", "none");

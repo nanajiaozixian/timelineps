@@ -13,8 +13,8 @@
 
 /******************************************************************主要部分*******************************************************************************************/
 
-require_once("wrMongodb.php");
-require_once("wrMysql.php");
+include_once("global.php");
+
 /**宏变量**/
 define('VERSIONS', 'versions');//保存所有版文件的文件夹名字
 define('OTHERS', 'others');//保存其它文件的文件夹名字
@@ -189,14 +189,20 @@ function saveCSSFiles($str){
 	$count = 0;	
 	//var_dump($links);
 	foreach($links as $val){	
-		if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
+		/*if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
+			continue;
+		}*/
+		if(!isNormalFile($val[1])){
 			continue;
 		}
 		$arr_link_css[$count] = $val[1];
-		/*if(strpos($val[1], "http:")!==0){
+		
+		if(strpos($val[1], "http:")!==0){
 			
-			$val[1] = $links[$count][1] = "http://".$host.$val[1];
-		}	*/
+			$val[1] = format_url($val[1], $url);
+			
+		}	
+		
 		$parts_css = parse_url($val[1]);
 		if(!array_key_exists('path',$parts_css)){
 			continue;
@@ -205,6 +211,7 @@ function saveCSSFiles($str){
 		if($filname_css===""){
 			continue;
 		}
+		
 		$filname_css = ifFileNameRepeat($filname_css, $arr_filename_css);
 		$arr_filename_css[$count] = $filname_css;
 		//判断链接有效性
@@ -218,11 +225,13 @@ function saveCSSFiles($str){
     		
     		//如果旧版本中不存在该文件，则直接下载该文件
     		$old_version = isFileExist($filname_css);
+    		//echo "filname_css: $filname_css<br/>";
     		$oldfilepath = "";
     		if($old_version === false){ 
     			//echo "newfilepath:  $newfilepath \n\r  str_file_content: $str_file_content";		
     			file_put_contents($newfilepath, $str_file_content);
-    			$str_localfile_content = relative_to_absolute($str_file_content, $url);
+    			//echo "csspath: ".$val[1]."<br/>";
+    			$str_localfile_content = relative_to_absolute($str_file_content, $val[1]);
     			$str_localfile_content = saveFilesInCss($str_localfile_content);
     			//echo "newlocalfilepath:  $newlocalfilepath \n\r  str_localfile_content: $str_localfile_content";	
     			file_put_contents($newlocalfilepath, $str_localfile_content);
@@ -232,7 +241,7 @@ function saveCSSFiles($str){
     			file_put_contents($tempfilepath, $str_file_content);
     			if(!compare($oldfilepath, $tempfilepath)){
     				file_put_contents($newfilepath, $str_file_content);
-    				$str_localfile_content = relative_to_absolute($str_file_content, $url);
+    				$str_localfile_content = relative_to_absolute($str_file_content, $val[1]);
     				$str_localfile_content = saveFilesInCss($str_localfile_content);
     				file_put_contents($newlocalfilepath, $str_localfile_content);
     			}else{
@@ -262,6 +271,7 @@ function saveJSFiles($str){
 	global $others;
 	global $version;
 	global $version_template;
+	global $url;
 	$localpath = OTHERS.BROWSER_SEPARATOR;
 	$arr_link_js = array(); //保存js 文件完整link
 	$arr_filename_js = array(); //保存js 文件的名字
@@ -273,7 +283,10 @@ function saveJSFiles($str){
 	//存储js文件原来的地址、文件名和下载在本地的路径
 	//var_dump($scripts);
 	foreach($scripts as $val){	
-		if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
+		/*if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
+			continue;
+		}*/
+		if(!isNormalFile($val[1])){
 			continue;
 		}
 		$arr_link_js[$count] = $val[1];
@@ -334,6 +347,7 @@ function saveIMGFiles($str){
 	global $others;
 	global $version;
 	global $version_template;
+	global $url;
 	$localpath = OTHERS.BROWSER_SEPARATOR;
 	$arr_link_img = array(); //保存img 文件完整link
 	$arr_filename_img = array(); //保存img 文件的名字
@@ -345,10 +359,12 @@ function saveIMGFiles($str){
 
 	//var_dump($images);
 	foreach($images as $val){	
-		if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
+		/*if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
+			continue;
+		}*/
+		if(!isNormalFile($val[1])){
 			continue;
 		}
-
 		$arr_link_img[$count] = $val[1];
 		if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)=="/"){	
 			array_push($arr_link_img, $val[1]);	
@@ -520,6 +536,7 @@ function saveFilesInCss($str_file){
 	preg_match_all('/url\((["|\']?)(.*?)\\1\)/',$str_file,$links, PREG_SET_ORDER);//links 里保存了从页面获取的所有css文件的路径
 	array_unique($links);
 	foreach($links as $val){	
+		//echo "imgpath1: ".$val[2]."<br/>";
 		$val[2] = trim($val[2]);	
 		if(substr($val[2],0, 5)==="data:"){
 			continue;
@@ -535,6 +552,7 @@ function saveFilesInCss($str_file){
 		if($filname_img===""){
 			continue;
 		}
+		//echo "imgpath2: ".$val[2]."<br/>";
 		$str = file_get_contents($val[2]);
 		
 		array_push($local_urls_arr, $localpath.$filname_img);

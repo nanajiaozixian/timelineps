@@ -60,7 +60,8 @@ function getPageVersions($pageid_in){
 	$query = "select * from pages where pages.pageid = '".$pageid_in."' order by version desc";
 	$result = mysql_query($query);
 	if (!$result) {
-    die("Could not find".mysql_error());
+		echo 'query: $query';
+    die("Could not find. ".mysql_error());
 	}
 	if(mysql_num_rows($result) <= 0){
 		return null;//网页没有存任何版本
