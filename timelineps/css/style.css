@@ -3,7 +3,9 @@
 a{
 	text-decoration: none;
 }
-
+li{
+	list-style: none;
+}
 body{	
 	background: black;
 	margin: 0;
@@ -50,7 +52,6 @@ body{
 }
 #navigation li{
 	float: left;
-	list-style: none;
 	margin-left:5px;
 }
 #navigation li:hover{
@@ -119,13 +120,15 @@ body{
 	color: #fcb140;
 	font-size: 36px;
 }
+
 #login_signup{
 	margin: 30px;
-	float: left;
+	float: right;
 }
 #login{
 	float: left;
 	width: 220px;
+	display:none;
 }
 
 #login img{
@@ -174,11 +177,11 @@ input{
 	width: 28px;
 	height: 228px;
 	margin: -20px 25px 0 0;
+	display:none;
 }
 #signup{
 	float: right;
-	width: 220px;
-	margin-right: -40px;
+	width: 400px;
 }
 
 #signup img{
@@ -196,7 +199,7 @@ input{
 #right #signup p{
 	font-size:16px;
 	margin-top: -2px;
-	width: 200px;
+	width: 400px;
 }
 #right #signup p span{
 	font-size:16px;
@@ -354,4 +357,54 @@ textarea{
 	position: absolute;
 	top: 1000px;
 	left: 200px;
+}
+#chosepage li{
+	padding-left:5px;
+}
+#curpage{
+	height: 20px;
+	border: 1px solid #686464;
+	border-radius: 3px;
+}
+#pages{
+	padding-top: 5px;
+	background: #3c3a3a;
+	display:none;
+	position:absolute;
+	top: 18px;
+	width: 150px;
+	z-index: 100;
+}
+#pages li{
+	border-bottom: 1px solid #797575;
+}
+#pages li:hover{
+	background: #ba901d;
+}
+.tl_btn{
+	width: 24px;
+	height:24px;
+	float: left;
+	margin_left: 3px;
+	border:0px;
+}
+#timeline_btns{
+	width: 200px;
+}
+#chosepage {
+	float: right;
+	width: 150px;
+	position:relative;
+}
+#timeline_show{
+	background: url("../img/show_snap_tl.png") -3px -21px no-repeat;
+}
+#timeline_show:hover{
+	background: url("../img/show_snap_tl.png") -3px -65px no-repeat;
+}
+#timeline_snap{
+	background: url("../img/show_snap_tl.png")  -2px 0px no-repeat;
+}
+#timeline_snap:hover{
+	background: url("../img/show_snap_tl.png")  -2px -44px no-repeat;
 }

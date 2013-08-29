@@ -12,32 +12,14 @@ window.onload = function(){
 	document.getElementById("takesnap").disabled=false;
 	var g_pageversion = "pageversion";
 	
-	//test
-	/*$.ajax({
-		  	type:"POST",
-		  	url:"download.php",
-		  	data:{page: "http://www.wartisan.com/BB.html", copyfile:"copy.html", userid:"1"},
-		  	//dataType: "json",//希望回调函数返回的数据类型
-		  	success:function(ms){
-		  			g_pagerid = ms;
-		  			
-      			showTimelinePage();
-      			g_bsnaping = false;
-      			document.getElementById("takesnap").disabled=false;
-      			showPageTimeline(g_pagerid);
-		  		}
-		  });*/
-	//showPageTimeline(2);
+	login();
 	$("#try_btn").click(function(){
-		/*$("#separation").css("display", "none");
-		$("#main_page_container").css("display", "none");
-		$("#footer").css("display", "none");
-		$("#snapshot_page_container").css("display", "block");
-		*/
+		
 		showSnapshotPage();
-		if(g_blogin){
-			return;
-		}
+		
+		
+	});
+	function login(){
 		$.ajax({
 			type:"POST",
 			url:"login.php",
@@ -45,12 +27,31 @@ window.onload = function(){
 			success:function(ms){
 				g_userid = ms;
 				g_blogin = true;
+				showPageTimeline(1);
 			},
 			error:function(ms){
 				console.log(ms);
 			}
 		});
-	});
+	}
+	
+	
+	//获取所有的页面
+	function getPages(userid){
+		$.ajax({
+  	type:"POST",
+  	url:"getAllPages.php",
+  	data:{pageid_d: userid},
+  	success:function(msg){
+  			var paths = eval("("+msg+")");
+				if(paths==null){					
+					return;
+				}
+				//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  	}
+  	
+  });
+	}
 	
 	$("#back").click(function(){		
 		/*$("#snapshot_page_container").css("display", "none");
@@ -222,21 +223,14 @@ function addIFrameEvents(){
 		  	//dataType: "json",//希望回调函数返回的数据类型
 		  	success:function(ms){
 		  			g_pagerid = ms;
-		  			/*console.log("js:g_pagerid:"+g_pagerid);
-		  			$("#loading").css("display","none");
-		  			$("#snapshot_page_container").css("display","none");
-      			$("#header").css("display","block");
-      			$("#separation").css("display","block");	
-      			$("#main_page_container").css("display","block");
-      			$("#show_timeline_page_container").css("display","block");
-      			$("#main_content").css("display","none");*/
+		  			
       			showTimelinePage();
       			g_bsnaping = false;
       			document.getElementById("takesnap").disabled=false;
       			showPageTimeline(g_pagerid);
 		  		}
 		  });
-  			
+  		
   			
   		}
   	}
@@ -364,5 +358,17 @@ function showTimelinePage(){
 	
       			
 }
+
+$("#chosepage").mouseover(function(){
+	$("#pages").css("display","block");
+}).mouseout(function(){
+	$("#pages").css("display","none");
+});
+$("#pages li").click(function(e){
+	$("#pages li").removeClass("page_selected");
+	$(this).addClass("page_selected");
+	var page_selected = $(this).text();
+	$("#curpage").text(page_selected);
+});
 
 }

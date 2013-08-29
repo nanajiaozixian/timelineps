@@ -12,6 +12,22 @@ function connect_mysql(){
 		
 		return $conn;
 }
+function getAllPages($userid_in){
+	$query_pages = "select pagename from userpages where userpages.userid = '".$userid_in."'";
+	$result=mysql_query($query_pages);
+	if(!$result){
+		return;
+	}
+	if(mysql_num_row($result)<=0){
+		echol null;
+	}else{
+		$pages_arry =array();
+		while($row=mysql_fetch_assoc($result)){
+			array_push($pages_arry, $row);
+		}
+		return $pages_arry;
+	}
+}
 
 function getPageId($userid_in, $pagename_in){
 	$query_pageid = "select pageid from userpages where userpages.userid = '".$userid_in."' and userpages.pagename = '".$pagename_in."'";

@@ -66,9 +66,12 @@ $url =  $url_in;
 $parts = parse_url($url);//解析url
 $host = $parts['host'];//获取hostname
 $main_file_init = basename($parts['path']);//获取pathname
+trim($main_file_init);
 $folder_name = preg_replace("/(\w+)\.(\w+)\.(\w+)/i", "$3.$2.$1", $host);
-if($main_file_init!==""){
+if($main_file_init!==""&&substr($main_file_init,-5)!=".html"&&substr($main_file_init,-4)!=".htm"){
 $page_folder = $main_file_init;//网页的总文件夹名字，根据域名定义，如www.adobe.com/cn,则文件夹名字为cn.com.adobe.com
+}else if($main_file_init!==""&&substr($main_file_init,-5)===".html"){
+	$page_folder = substr($main_file_init,0,-5);
 }else{
 	$page_folder = "index";
 }

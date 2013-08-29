@@ -1,9 +1,9 @@
 <?php
-include_once("wrMysql.php");
-include_once("wrMongodb.php");
+reqiure_once("wrMysql.php");
+reqiure_once("wrMongodb.php");
 
 set_time_limit(300);
-error_reporting(E_ERROR);
+error_reporting(0);
 //error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 //把文本内的相对路径换成绝对路径
@@ -95,7 +95,10 @@ function isNormalFile($filename_in){
 	if($filetype!==".css" && $filetype!==".img" && $filetype!==".gif" && $filetype!==".png" && $filetype!==".jpg"){
 		$filetype = substr($filename, -3);
 		if($filetype!==".js"){
-			return false;
+			$filetype = substr($filename, -5);
+			if($filetype!==".icon"){
+				return false;
+			}
 		}
 	}
 	return true;
