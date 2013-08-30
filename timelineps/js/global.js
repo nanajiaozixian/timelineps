@@ -250,6 +250,9 @@ function showPageTimeline(pageid_in){
   	//dataType: "json",//希望回调函数返回的数据类型
   	success:function(json){
   		getProfile(json);
+  		if(g_pageurl==""){
+  			getPageInfor(pageid_in);
+  		}
   		//console.log(json);
   	}
   });
@@ -265,6 +268,7 @@ function getProfile(json){
 				return;
 			}
 			pagefilePath = paths;
+			
 			if(paths==null){
 				//alert("The page has not any local vertion now. Go to make some snapshots now!");
 				return;
@@ -422,4 +426,27 @@ $("#timeline_snap").click(function(){
 	takeSnapshot(curpage);
 	showSnapshotPage();
 });
+
+function getPageInfor(pageid){
+	if(!pageid) return;
+	$.ajax({
+  	type:"POST",
+  	url:"getPageInfor.php",
+  	data:{pageid_d: pageid},
+  	success:function(msg){
+  			var pages = eval("("+msg+")");
+				if(pages==null){					
+					return;
+				}
+				if(pages['pageurl']!=null){
+					var str = "Page URL: "+pages['pageurl'];
+					$("#curpageurl_t").text(str);
+				}
+				
+  	}
+  	
+  });
+}
+
+
 }

@@ -50,6 +50,21 @@ function getPageId($userid_in, $pagename_in, $url_in){
 	}
 }
 
+function getPageInfor($pageid){
+	$query = "select * from userpages where userpages.pageid = '".$pageid."'";
+	$result = mysql_query($query);
+	if (!$result) {
+    die("Could not find ".mysql_error());
+	}
+	if(mysql_num_rows($result) <= 0){
+		return;
+	}else if(mysql_num_rows($result) > 0){
+		while ($row = mysql_fetch_assoc($result)) {
+					
+		       return $row;
+    }
+	}
+}
 
 function getMaxPageVersion($pageid_in){
 	$query = "select versionid from pages where pages.pageid = '".$pageid_in."'";

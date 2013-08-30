@@ -332,7 +332,7 @@ textarea{
 #webpage{
 	width: 95%;
 	height: 800px;
-	float: right;
+	float: left;
 	background: white;
 }
 #hidepage{
@@ -342,13 +342,14 @@ textarea{
 	float: right;
 }
 #right_st{
-	width: 85%;
+	width: 75%;
 	height: 800px;
 	float: right;
+	padding-left:20px;
 }
 #leftbar_st{
 	margin-left: 10px;
-	width: 10%;
+	width: 18%;
 	float: left;
 	height: 800px;
 }
@@ -409,4 +410,9 @@ textarea{
 }
 #timeline_snap:hover{
 	background: url("../img/show_snap_tl.png")  -2px -44px no-repeat;
+}
+
+#curpageurl_t{
+	padding: 5px 0;
+	color: #FFCC00;
 }

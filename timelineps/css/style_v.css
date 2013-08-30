@@ -37,7 +37,7 @@ h1,h2,h4,h5,h6 {
 }
 
 	#timeline {
-		width: 200px;
+		width: 250px;
 		height: 650px;
 		overflow: hidden;
 		margin: 40px auto;
@@ -45,14 +45,14 @@ h1,h2,h4,h5,h6 {
 		background: url('../images/dot.gif') 3px top repeat-y;
 	}
 		#dates {
-			width: 50px;
+			width: 80px;
 			height: 600px;
 			overflow: hidden;
 			float: left;
 		}
 			#dates li {
 				list-style: none;
-				width: 50px;
+				width: 80px;
 				height: 100px;
 				line-height: 100px;
 				font-size: 24px;
