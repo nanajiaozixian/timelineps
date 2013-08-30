@@ -66,6 +66,7 @@ window.onload = function(){
 	//login
 	
 	$("#login_btn").click(function(){
+		
 		var un = document.getElementById("username").value;
 		var psw = document.getElementById("password").value;
 		if(!login_verify("username") || !login_verify("password")){
@@ -143,11 +144,12 @@ $("#password").blur(function() {
 var g_bSignup = false;
 $("#signup_btn").click(function(){
 	if(g_bSignup == false){
-  	$("#signup_info").css("display", "none");
+  	/*$("#signup_info").css("display", "none");
   	$(".c_input_signup").css("display", "block");
   	document.getElementById("email_sign").value = g_username;
 		document.getElementById("password_sign").value = g_password;
-  	g_bSignup = true;
+  	g_bSignup = true;*/
+  	window.open("http://www.wartisan.com/");
 	}
 });
 

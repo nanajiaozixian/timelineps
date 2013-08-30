@@ -1,5 +1,5 @@
 <?php
-require_once("wrMysql.php");
+require_once("global.php");
 	if(!isset($_POST['pageid_d'])){
 		return;
 	}

@@ -1,14 +1,23 @@
 <?php
 function connect_mysql(){
-	$conn = @mysql_connect('localhost', 'timeline', 'hitimeline');
 
-		if(!$conn){
-			die("Could not link to mysql".mysql_error());
-		}
-		$db = mysql_select_db('timelinedb', $conn);
+		$hostname = "wartisantimeline.db.11092185.hostedresource.com";
+    $username = "wartisantimeline";
+    $dbname = "wartisantimeline";
+
+    //These variable values need to be changed by you before deploying
+    $password = "Wartisan@2";
+
+    //Connecting to your database
+    $conn = mysql_connect($hostname, $username, $password) OR DIE ("Unable to 
+    connect to database! Please try again later.");
+    $db = mysql_select_db($dbname);
+
 		if (!$db) {
     	die ('Can\'t use foo : ' . mysql_error());
 		}
+		
+		
 		
 		return $conn;
 }

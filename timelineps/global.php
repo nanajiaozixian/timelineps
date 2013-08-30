@@ -4,7 +4,7 @@ require_once("wrMongodb.php");
 
 set_time_limit(300);
 //error_reporting(0); //如果需要测试bug，可以先把这行注释掉
-error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ERROR | E_PARSE);
 
 //把文本内的相对路径换成绝对路径
 function relative_to_absolute($content, $feed_url){
