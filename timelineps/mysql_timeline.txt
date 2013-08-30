@@ -30,7 +30,8 @@ create table users
 create table userpages
 ( pageid int unsigned not null auto_increment primary key,
 	pagename text not null,
-	userid int unsigned not null
+	userid int unsigned not null,
+	pageurl varchar(500) not null
 );
 
 /*创建userpages表格

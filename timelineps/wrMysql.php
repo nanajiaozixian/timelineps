@@ -13,13 +13,13 @@ function connect_mysql(){
 		return $conn;
 }
 function getAllPages($userid_in){
-	$query_pages = "select pagename from userpages where userpages.userid = '".$userid_in."'";
+	$query_pages = "select * from userpages where userpages.userid = '".$userid_in."'";
 	$result=mysql_query($query_pages);
 	if(!$result){
 		return;
 	}
-	if(mysql_num_row($result)<=0){
-		echol null;
+	if(mysql_num_rows($result)<=0){
+		return;
 	}else{
 		$pages_arry =array();
 		while($row=mysql_fetch_assoc($result)){
@@ -29,22 +29,23 @@ function getAllPages($userid_in){
 	}
 }
 
-function getPageId($userid_in, $pagename_in){
+function getPageId($userid_in, $pagename_in, $url_in){
 	$query_pageid = "select pageid from userpages where userpages.userid = '".$userid_in."' and userpages.pagename = '".$pagename_in."'";
 	$result=mysql_query($query_pageid);
 	if (!$result) {
     die("Could not find".mysql_error());
 	}
 	if(mysql_num_rows($result) <= 0){
-		$query = "insert into userpages (userid, pagename) values ('".$userid_in."', '".$pagename_in."')";
+		$query = "insert into userpages values (NULL,'".$pagename_in."', '".$userid_in."', '".$url_in."')";
 		$result=mysql_query($query);
 		if (!$result) {
     	die("Insert failure".mysql_error());
 		}
-		getPageId($userid_in, $pagename_in);
+		getPageId($userid_in, $pagename_in, $url_in);
 	}else if(mysql_num_rows($result) > 0){
 		while ($row = mysql_fetch_assoc($result)) {
-        return $row['pageid'];
+					
+		       return $row['pageid'];
     }
 	}
 }

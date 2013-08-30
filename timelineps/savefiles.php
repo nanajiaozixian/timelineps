@@ -13,7 +13,7 @@
 
 /******************************************************************主要部分*******************************************************************************************/
 
-include_once("global.php");
+require_once("global.php");
 
 /**宏变量**/
 define('VERSIONS', 'versions');//保存所有版文件的文件夹名字
@@ -76,10 +76,12 @@ $page_folder = $main_file_init;//网页的总文件夹名字，根据域名定义，如www.adobe.c
 	$page_folder = "index";
 }
 $collection_name = $page_folder.".".$folder_name;
-$page_id = getPageId($userid, $collection_name);
-$temp_id = getPageId($userid, $collection_name);
-$page_id = $temp_id;
+//echo "userid: $userid collection_name: $collection_name url: $url<br/>";
 
+$temp_id = getPageId($userid, $collection_name, $url);
+$temp_id = getPageId($userid, $collection_name, $url);//这里有一个bug，不能直接赋值给page_id，要通过一个临时局部变量传值
+$page_id = $temp_id;
+echo $page_id;
 //echo "page_id: $page_id, userid: $userid, collection_name: $collection_name";
 $max_ver = getMaxPageVersion($page_id);
 $v = $max_ver;
@@ -108,14 +110,18 @@ if(substr($main_file, -5)!=".html"){
 }
 $local_file = substr($main_file,0,-5)."_local.html";
 //echo "local_file, $local_file  main_file:  $main_file<br/>";
+
 $str = file_get_contents($url);
+if($str===false){
+	return;
+}
 file_put_contents($version.DIRECTORY_SEPARATOR.$main_file, $str);
 $verpagepath_local = $version.DIRECTORY_SEPARATOR.$local_file;// html的local文件储存的地址
 saveFiles($str_file);
 //addToDB();//MongoDB
 //echo $page_id;
-addToMysql();
-echo $page_id;
+addToMysql($temp_id);
+
 }
 /********************************************************************各种函数************************************************************************************/
 
@@ -221,7 +227,9 @@ function saveCSSFiles($str){
 		//echo $val[1]."<br/>";
 		if(get_headers($val[1])!==false){		
 				$str_file_content = file_get_contents($val[1]);
-				
+				if($str_file_content===false){
+					continue;
+				}
     		$newfilepath = $version.DIRECTORY_SEPARATOR.OTHERS.DIRECTORY_SEPARATOR.CSS.DIRECTORY_SEPARATOR.$filname_css;
     		$newlocalfilepath = $version.DIRECTORY_SEPARATOR.OTHERS.DIRECTORY_SEPARATOR.$filname_css;
     		$arr_localpath_css[$count] = OTHERS.BROWSER_SEPARATOR.$filname_css;
@@ -308,6 +316,9 @@ function saveJSFiles($str){
 		if(get_headers($val[1])!==false){		
 				//echo $val[1].'<br/>';
 				$str_file_content = file_get_contents($val[1]);
+				if($str_file_content===false){
+					continue;
+				}
     		$newfilepath = $version.DIRECTORY_SEPARATOR.$localpath.$filname_js;
     		$arr_localpath_js[$count] = $localpath.$filname_js;
     
@@ -388,6 +399,9 @@ function saveIMGFiles($str){
 		if(get_headers($val[1])!==false){		
 				//echo $val[1].'<br/>';
 				$str_file_content = file_get_contents($val[1]);
+				if($str_file_content===false){
+					continue;
+				}
     		$newfilepath = $version.DIRECTORY_SEPARATOR.$localpath.$filname_img;
     		$arr_localpath_img[$count] = $localpath.$filname_img;
     
@@ -513,15 +527,15 @@ function addToDB(){
 	addNewVersion($collection_name, $ver_arr);
 }
 
-function addToMysql(){
+function addToMysql($pageid_in){
 	global $verpagepath_local;
 	global $collection_name;
 	global $v;
-	global $page_id;
+	//echo "page_id: $page_id<br/>";
 	$path = preg_replace("/\\\\/","\\\\\\",$verpagepath_local);
 	date_default_timezone_set('UTC');
 	$today = date("Y-m-d H:i:s");
-	$query = "insert into pages values (NULL, '".$v."', '".$today."', '".$path."', NULL, '".$page_id."')";
+	$query = "insert into pages values (NULL, '".$v."', '".$today."', '".$path."', NULL, '".$pageid_in."')";
 	//echo "query: $query";
 	$result = mysql_query($query);
 	if(!$result){
@@ -544,7 +558,9 @@ function saveFilesInCss($str_file){
 		if(substr($val[2],0, 5)==="data:"){
 			continue;
 		}
-		//echo $val[2];
+		if(get_headers($val[2])===false){
+			continue;
+		}
 		array_push($urls_arr,$val[2]);
 		$parts_img = parse_url($val[2]);
 		if(!array_key_exists('path',$parts_img)){
@@ -557,7 +573,9 @@ function saveFilesInCss($str_file){
 		}
 		//echo "imgpath2: ".$val[2]."<br/>";
 		$str = file_get_contents($val[2]);
-		
+		if($str===false){
+			continue;
+		}
 		array_push($local_urls_arr, $localpath.$filname_img);
 		
 		file_put_contents( $savepath.$filname_img, $str);

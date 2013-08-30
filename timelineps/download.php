@@ -1,6 +1,6 @@
 <?php
-include_once("global.php");
-require_once "savefiles.php";
+require_once("global.php");
+require_once("savefiles.php");
 
 if(isset($_POST['csshref'])){
 	$csshref = $_POST['csshref'];

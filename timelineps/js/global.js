@@ -7,17 +7,15 @@ window.onload = function(){
 	var copy_file_path = "";//保存hidepage 里的页面地址
 	var g_blogin = false;
 	var g_bsnaping = false;
+	var pagefilePath = "";
 	document.getElementById("username").value = g_username;
 	document.getElementById("password").value = g_password;
 	document.getElementById("takesnap").disabled=false;
 	var g_pageversion = "pageversion";
-	
+	var timeline_init = false;
 	login();
-	$("#try_btn").click(function(){
-		
-		showSnapshotPage();
-		
-		
+	$("#try_btn").click(function(){		
+		showSnapshotPage();				
 	});
 	function login(){
 		$.ajax({
@@ -27,7 +25,9 @@ window.onload = function(){
 			success:function(ms){
 				g_userid = ms;
 				g_blogin = true;
+				getPages(g_userid);
 				showPageTimeline(1);
+				
 			},
 			error:function(ms){
 				console.log(ms);
@@ -43,11 +43,11 @@ window.onload = function(){
   	url:"getAllPages.php",
   	data:{pageid_d: userid},
   	success:function(msg){
-  			var paths = eval("("+msg+")");
-				if(paths==null){					
+  			var pages = eval("("+msg+")");
+				if(pages==null){					
 					return;
 				}
-				//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				listpages(pages);
   	}
   	
   });
@@ -163,11 +163,16 @@ $("#signup_img").click(function(){
 //snapshot
 $("#takesnap").click(function(){
 	var pageurl_str = document.getElementById("pageurl").value;
-	g_pageurl = pageurl_str;
+	takeSnapshot(pageurl_str);
+});
+
+function takeSnapshot(pagestr){
+	
+	g_pageurl = pagestr;
   $.ajax({
   	type:"POST",
   	url:"preSavefiles.php",
-  	data:{pageurl_d: pageurl_str},
+  	data:{pageurl_d: pagestr},
   	success:function(msg){
   			copy_file_path = msg;
   			document.getElementById("hidepage").src = copy_file_path;			
@@ -180,7 +185,7 @@ $("#takesnap").click(function(){
  // $("#content_snp").css("opacity","0.3");
   $("#loading").css("display","block");
   document.getElementById("takesnap").disabled=true;
-});
+}
 
 $("#pageurl").click(function(){
 	this.value = "";
@@ -254,7 +259,14 @@ function getProfile(json){
 			
 			var paths = eval("("+json+")");
 			if(paths==null){
-				alert("The page has not any local vertion now. Go to make some snapshots now!");
+				if(!timeline_init){
+					timeline_init = true;
+				}
+				return;
+			}
+			pagefilePath = paths;
+			if(paths==null){
+				//alert("The page has not any local vertion now. Go to make some snapshots now!");
 				return;
 			}
 			drawTimeline(paths);
@@ -264,7 +276,9 @@ function getProfile(json){
 
 function drawTimeline(filesPath){
 			
-		
+			if(filesPath==""){
+				return;
+			}
 			$("#dates").empty();
 				for(var i=0; i<filesPath.length;i++){
 
@@ -298,6 +312,31 @@ function drawTimeline(filesPath){
 		});
 	
 	
+}
+
+function listpages(pages){
+	$("#pages").empty();
+	for(var i=0; i<pages.length; i++){
+		var html = '<li pageid="'+pages[i]['pageid']+'"  title="'+pages[i]['pageurl']+'">'+pages[i]['pageurl']+'</li>';
+		//console.log(html);
+		$("#pages").append(html);
+		if($("#pages li:first-child")){
+			var page_selected = $("#pages li:first-child").text();
+  		$("#curpage").text(page_selected);
+  		$("#curpage").attr("title", page_selected);
+  		var pageid = $("#pages li:first-child").attr("pageid");
+  		$("#curpage").attr("pageid", pageid);
+		}
+	}
+	$("#pages li").click(function(e){
+  	$("#pages li").removeClass("page_selected");
+  	$(this).addClass("page_selected");
+  	var page_selected = $(this).text();
+  	var pageid = $(this).attr("pageid");
+  	$("#curpage").text(page_selected);
+  	$("#curpage").attr("title", page_selected);
+  	$("#curpage").attr("pageid", pageid);
+  });
 }
 
 $("#navigation").click(function(e){
@@ -355,7 +394,11 @@ function showTimelinePage(){
 	$("#separation").css("display","block");	
 	$("#main_page_container").css("display","block");
 	$("#footer").css("display", "block");
-	
+	if(!timeline_init){
+		drawTimeline(pagefilePath);
+		timeline_init = true;
+	}
+	getPages(g_userid);
       			
 }
 
@@ -364,11 +407,19 @@ $("#chosepage").mouseover(function(){
 }).mouseout(function(){
 	$("#pages").css("display","none");
 });
-$("#pages li").click(function(e){
-	$("#pages li").removeClass("page_selected");
-	$(this).addClass("page_selected");
-	var page_selected = $(this).text();
-	$("#curpage").text(page_selected);
+
+$("#timeline_show").click(function(){
+	var pageid = $("#curpage").attr("pageid");
+	showPageTimeline(pageid);
 });
 
+$("#timeline_snap").click(function(){
+	if(g_bsnaping == true){
+		return;
+	}
+	var curpage = $("#curpage").text();
+	$("#pageurl").text(curpage);
+	takeSnapshot(curpage);
+	showSnapshotPage();
+});
 }
