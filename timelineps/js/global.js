@@ -15,7 +15,7 @@ window.onload = function(){
 	var timeline_init = false;
 	login();
 	$("#try_btn").click(function(){		
-		showSnapshotPage();				
+		showTimelinePage();				
 	});
 	function login(){
 		$.ajax({

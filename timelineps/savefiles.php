@@ -194,7 +194,7 @@ function saveCSSFiles($str){
 	$arr_filename_css = array(); //保存css 文件的名字
 	$arr_localpath_css = array();//保存css 文件本地存储路径
 		//file_put_contents("temp.html", $str);
-	preg_match_all("/<link\s+.*?href=[\"|'](.+?)[\"|'].*?>/",$str,$links, PREG_SET_ORDER);//links 里保存了从页面获取的所有css文件的路径
+	preg_match_all("/<link\s+[^>]*?href=[\"|'](.+?)[\"|'].*?>/",$str,$links, PREG_SET_ORDER);//links 里保存了从页面获取的所有css文件的路径
 	$count = 0;	
 	//var_dump($links);
 	foreach($links as $val){	
@@ -290,9 +290,9 @@ function saveJSFiles($str){
 	$count = 0;	
 
 
-	preg_match_all("/<script\s+.*?src=[\"|']([^\"']*)[\"|'].*?>/",$str,$scripts, PREG_SET_ORDER);//scripts 里保存了从页面获取的所有js文件的路径
+	preg_match_all("/<script[^>]*?src=[\"|']([^\"']*?)[\"|'].*?>/",$str,$scripts, PREG_SET_ORDER);//scripts 里保存了从页面获取的所有js文件的路径
 	//存储js文件原来的地址、文件名和下载在本地的路径
-	//var_dump($scripts);
+	
 	foreach($scripts as $val){	
 		/*if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
 			continue;
@@ -368,10 +368,10 @@ function saveIMGFiles($str){
 	$arr_localpath_img = array();//保存img 文件本地存储路径
 	$count = 0;	
 
-	preg_match_all("/<img\s+.*?src=[\"|']([^\"']*)[\"|'].*?>/",$str,$images, PREG_SET_ORDER);//images 里保存了从页面获取的所有img文件的路径
+	preg_match_all("/<img\s+[^>]*?src=[\"|']([^\"']*)[\"|'].*?>/",$str,$images, PREG_SET_ORDER);//images 里保存了从页面获取的所有img文件的路径
 	//存储img文件原来的地址、文件名和下载在本地的路径
 
-	//var_dump($images);
+	
 	foreach($images as $val){	
 		/*if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)!=="/"){		
 			continue;
@@ -380,7 +380,10 @@ function saveIMGFiles($str){
 			continue;
 		}
 		$arr_link_img[$count] = $val[1];
-		if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)=="/"){	
+		if(strpos($val[1], "http:")!==0 && substr($val[1], 0,1)=="/"){
+			if(!in_array($val[1],$arr_link_img)){
+				continue;
+			}
 			array_push($arr_link_img, $val[1]);	
 			//$val[1] = $images[$count][1] = "http://".$host.$val[1];
 		}	
@@ -403,7 +406,10 @@ function saveIMGFiles($str){
 					continue;
 				}
     		$newfilepath = $version.DIRECTORY_SEPARATOR.$localpath.$filname_img;
-    		$arr_localpath_img[$count] = $localpath.$filname_img;
+			if(in_array($localpath.$filname_img,$arr_localpath_img)){
+				continue;
+			}
+    		
     
     		//如果旧版本中不存在该文件，则直接下载该文件
     		$old_version = isFileExist($filname_img);
@@ -411,6 +417,7 @@ function saveIMGFiles($str){
     		$oldfilepath = "";
     		if($old_version === false){
     			file_put_contents($newfilepath, $str_file_content);
+				array_push($arr_localpath_img,$localpath.$filname_img);
     			
     		}else{	
     			$oldfilepath = $version_template.$old_version.DIRECTORY_SEPARATOR.OTHERS.DIRECTORY_SEPARATOR.$filname_img;
@@ -418,8 +425,9 @@ function saveIMGFiles($str){
     			file_put_contents($tempfilepath, $str_file_content);
     			if(!compare($oldfilepath, $tempfilepath)){
     				file_put_contents($newfilepath, $str_file_content);
+					array_push($arr_localpath_img,$localpath.$filname_img);
     			}else{
-    				$arr_localpath_img[$count] = "..".BROWSER_SEPARATOR.V.$old_version.BROWSER_SEPARATOR.OTHERS.BROWSER_SEPARATOR.$filname_img;
+    				array_push($arr_localpath_img,"..".BROWSER_SEPARATOR.V.$old_version.BROWSER_SEPARATOR.OTHERS.BROWSER_SEPARATOR.$filname_img);
     				
     			}
     		}
@@ -429,6 +437,7 @@ function saveIMGFiles($str){
 	}
 	//把html文件里的img路径更改指向保存的路径
 	$str_new = $str;
+	
 	$str_new = str_replace($arr_link_img, $arr_localpath_img, $str_new);
 	return $str_new;
 }

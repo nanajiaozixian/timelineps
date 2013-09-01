@@ -58,3 +58,13 @@ password: timeline
 */
 insert into users values
 	(NULL, 'timeline', 'timeline@timeline.com', 'timeline');
+
+
+/*给userpages插入example页*/
+insert into userpages values ('1', 'example', '1', 'example');
+/*给pages插入example页各个版本*/
+insert into pages values (NULL, '1', '2013-08-15 12:00:00', 'pages\\example\\versions\\v1\\index.html', NULL, '1'),
+(NULL, '2', '2013-08-16 12:00:00', 'pages\\example\\versions\\v2\\index.html','The image has been updated to a new one.', '1'),
+(NULL, '3', '2013-08-17 12:00:00', 'pages\\example\\versions\\v3\\index.html', 'The text has been updated.', '1'),
+(NULL, '4', '2013-08-18 12:00:00', 'pages\\example\\versions\\v4\\index.html', 'The part below has been deleted.', '1'),
+(NULL, '5', '2013-08-19 12:00:00', 'pages\\example\\versions\\v5\\index.html', 'A new part has been added.', '1');

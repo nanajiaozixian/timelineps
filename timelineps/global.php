@@ -4,7 +4,7 @@ require_once("wrMongodb.php");
 
 set_time_limit(300);
 //error_reporting(0); //如果需要测试bug，可以先把这行注释掉
-//error_reporting(E_ERROR | E_PARSE);
+error_reporting(E_ERROR | E_PARSE);
 
 //把文本内的相对路径换成绝对路径
 function relative_to_absolute($content, $feed_url){
@@ -34,15 +34,15 @@ function relative_to_absolute($content, $feed_url){
         $new_content = preg_replace('/src="\/\//', 'src="'.$protocol[0], $new_content);
          
         $new_content = preg_replace('/url\((["|\']?)\/([^\/]+?)/', 'url('.'\\1'.$protocol[0].$server_url.'/'.'\\2', $new_content);
-				$new_content = preg_replace('/url\((["|\']?)\/\//', 'url('.'\\1'.$protocol[0], $new_content);
+		$new_content = preg_replace('/url\((["|\']?)\/\//', 'url('.'\\1'.$protocol[0], $new_content);
 				
-				preg_match_all("/<link\s+.*?href=[\"|'](.+?)[\"|'].*?>/",$new_content,$links, PREG_SET_ORDER);//links 里保存了从页面获取的所有css文件的路径
+		preg_match_all("/<link\s+[^>]*?href=[\"|'](.+?)[\"|'].*?>/",$new_content,$links, PREG_SET_ORDER);//links 里保存了从页面获取的所有css文件的路径
         
         $new_content = 	regLinksToAbsoulte($links, $url, $new_content);
-        preg_match_all("/<script\s+.*?src=[\"|']([^\"']*)[\"|'].*?>/",$new_content,$scripts, PREG_SET_ORDER);
+        preg_match_all("/<script\s+[^>]*?src=[\"|']([^\"']*)[\"|'].*?>/",$new_content,$scripts, PREG_SET_ORDER);
         $new_content = 	regLinksToAbsoulte($scripts, $url, $new_content);
         
-        preg_match_all("/<img\s+.*?src=[\"|']([^\"']*)[\"|'].*?>/",$new_content,$images, PREG_SET_ORDER);
+        preg_match_all("/<img\s+[^>]*?src=[\"|']([^\"']*)[\"|'].*?>/",$new_content,$images, PREG_SET_ORDER);
         $new_content = 	regLinksToAbsoulte($images, $url, $new_content);
         
         preg_match_all("/url\([\"|']?([^\"|']*?)[\"|']?\)/",$new_content,$images, PREG_SET_ORDER);
